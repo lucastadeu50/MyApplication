@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dimasjose.myapplication.control.CadastroActivity">
+    <TextView
+        android:id="@+id/txtNome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Nome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtNome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/txtNome"
+        app:layout_constraintStart_toStartOf="@+id/txtNome"
+        app:layout_constraintTop_toBottomOf="@+id/txtNome" />
+
+    <TextView
+        android:id="@+id/txtDatadeNascimento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Data de Nascimento"
+        app:layout_constraintEnd_toEndOf="@+id/edtNome"
+        app:layout_constraintStart_toStartOf="@+id/edtNome"
+        app:layout_constraintTop_toBottomOf="@+id/edtNome" />
+
+    <EditText
+        android:id="@+id/edtDatadeNascimento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="@+id/txtDatadeNascimento"
+        app:layout_constraintStart_toStartOf="@+id/txtDatadeNascimento"
+        app:layout_constraintTop_toBottomOf="@+id/txtDatadeNascimento" />
+
+    <TextView
+        android:id="@+id/txtSexo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Sexo"
+        app:layout_constraintEnd_toEndOf="@+id/edtDatadeNascimento"
+        app:layout_constraintStart_toStartOf="@+id/edtDatadeNascimento"
+        app:layout_constraintTop_toBottomOf="@+id/edtDatadeNascimento" />
+
+    <Spinner
+        android:id="@+id/spinnerSexo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txtSexo"
+        app:layout_constraintTop_toBottomOf="@+id/txtSexo" />
+
+    <TextView
+        android:id="@+id/txtOcupacao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Ocupação Princiapal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerSexo" />
+
+    <EditText
+        android:id="@+id/edtOcupacao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/txtOcupacao"
+        app:layout_constraintStart_toStartOf="@+id/txtOcupacao"
+        app:layout_constraintTop_toBottomOf="@+id/txtOcupacao" />
+
+    <TextView
+        android:id="@+id/txtObservacao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Observação"
+        app:layout_constraintEnd_toEndOf="@+id/edtOcupacao"
+        app:layout_constraintStart_toStartOf="@+id/edtOcupacao"
+        app:layout_constraintTop_toBottomOf="@+id/edtOcupacao" />
+
+    <EditText
+        android:id="@+id/edtObservacao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="@+id/txtObservacao"
+        app:layout_constraintStart_toStartOf="@+id/txtObservacao"
+        app:layout_constraintTop_toBottomOf="@+id/txtObservacao" />
+
+</android.support.constraint.ConstraintLayout>
