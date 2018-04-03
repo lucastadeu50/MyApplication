@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,12 +11,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.dimasjose.myapplication.R;
-//TESTE
 
 public class MainActivity extends AppCompatActivity {
 
     private Button buttonConsultar; //decclara os botões
     private Button buttonIncluir;
+    private Button buttonInicarConsulta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +25,14 @@ public class MainActivity extends AppCompatActivity {
 
         buttonConsultar = (Button)findViewById(R.id.buttonConsultar); // faz a ligaçao entre o botao no XML e o codigo que determinará sua ação
         buttonIncluir = (Button)findViewById(R.id.buttonIncluir);
-
+        buttonInicarConsulta = findViewById(R.id.buttonIniciarConsulta);
 
 
         ActivityCompat.requestPermissions(MainActivity.this,
                 new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
                              Manifest.permission.WRITE_EXTERNAL_STORAGE,
                              Manifest.permission.RECORD_AUDIO},
-
                 1);
-
-
-
 
 
         //        buttonIncluir.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,ConsultaActivity.class);//abre a tela de consulta
+                startActivity(intent);
+            }
+        });
+        buttonInicarConsulta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,InicarConsultaActivity.class);
                 startActivity(intent);
             }
         });
