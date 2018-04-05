@@ -24,7 +24,8 @@
         <activity android:name=".control.CadastroActivity" />
         <activity android:name=".control.EdicaoActivity" />
         <activity android:name=".control.InicarConsultaActivity" />
-        <activity android:name=".control.CadastroActivity$GravacaoActivity"></activity>
+        <activity android:name=".control.CadastroActivity$GravacaoActivity" />
+        <activity android:name=".control.GravacaoActivity"></activity>
     </application>
 
 </manifest>
