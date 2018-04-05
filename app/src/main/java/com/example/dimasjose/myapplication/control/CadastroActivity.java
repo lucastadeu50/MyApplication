@@ -2,22 +2,17 @@ package com.example.dimasjose.myapplication.control;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import  android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.dimasjose.myapplication.R;
-import com.example.dimasjose.myapplication.adapter.ListViewAdapter;
 import com.example.dimasjose.myapplication.model.Usuario;
 import com.example.dimasjose.myapplication.model.UsuarioBD;
-
-import java.util.List;
 
 public class CadastroActivity extends AppCompatActivity {
 
@@ -127,4 +122,6 @@ public class CadastroActivity extends AppCompatActivity {
             Toast.makeText(this, "ERRO dado nao adicionado ao banco.", Toast.LENGTH_LONG).show();
         }
     }
+
+
 }
