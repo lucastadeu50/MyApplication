@@ -99,7 +99,6 @@ public class GravacaoActivity extends AppCompatActivity {
             mediaPlayer.start();
             Toast.makeText(getApplicationContext(),"Audio esta tocando",Toast.LENGTH_LONG).show();
 
-
         }
 
         private void dichtMediaPlayer() {
