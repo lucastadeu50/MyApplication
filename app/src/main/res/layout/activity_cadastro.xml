@@ -103,10 +103,4 @@
         app:layout_constraintStart_toStartOf="@+id/txtObservacao"
         app:layout_constraintTop_toBottomOf="@+id/txtObservacao" />
 
-    <ListView
-        android:id="@+id/listviewcadastro"
-        android:layout_width="368dp"
-        android:layout_height="116dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="387dp" />
 </android.support.constraint.ConstraintLayout>

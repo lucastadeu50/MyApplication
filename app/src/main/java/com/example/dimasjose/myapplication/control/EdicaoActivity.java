@@ -56,7 +56,7 @@ public class EdicaoActivity extends AppCompatActivity {
         }
         edtOcupacao.setText(intent.getStringExtra("ocupacao"));
         edtObservacao.setText(intent.getStringExtra("observacao"));
-        edtNone.requestFocus();// COLOCA O FOCUS NO NOME QUANDO A TELA É ABERTA
+        edtNone.requestFocus();// COLOvCA O FOCUS NO NOME QUANDO A TELA É ABERTA
 
     }
     // É PRATICAMENTE IGUAL A CLASSE DE CADASTRO
@@ -101,7 +101,7 @@ public class EdicaoActivity extends AppCompatActivity {
         boolean insertData = usuarioBD.update(id, newEntry, newEntry2, newEntry3, newEntry4, newEntry5);
 
         if (insertData == true) {
-            Toast.makeText(this, "Dado adicionado ao banco com sucesso.", Toast.LENGTH_LONG).show();
+          //  Toast.makeText(this, "Dado adicionado ao banco com sucesso.", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(this, "ERRO dado nao adicionado ao banco.", Toast.LENGTH_LONG).show();
         }

@@ -44,9 +44,6 @@ public class CadastroActivity extends AppCompatActivity {
         edtDatadeNascimento = findViewById(R.id.edtDatadeNascimento);
         edtOcupacao = findViewById(R.id.edtOcupacao);
         edtObservacao = findViewById(R.id.edtObservacao);
-
-
-
     }
 
         //CRIA O MENU QUE APARECE NA BARRA AZUL
@@ -117,7 +114,7 @@ public class CadastroActivity extends AppCompatActivity {
         boolean insertData = usuarioBD.addData(newEntry, newEntry2, newEntry3, newEntry4, newEntry5);
 
         if(insertData==true){
-            Toast.makeText(this, "Dado adicionado ao banco com sucesso.", Toast.LENGTH_LONG).show();
+          //  Toast.makeText(this, "Dado adicionado ao banco com sucesso.", Toast.LENGTH_LONG).show();
         }else{
             Toast.makeText(this, "ERRO dado nao adicionado ao banco.", Toast.LENGTH_LONG).show();
         }
