@@ -1,5 +1,6 @@
 package com.example.dimasjose.myapplication.control;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Environment;
@@ -20,8 +21,7 @@ public class GravacaoActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     MediaRecorder recorder;
     String OUTPUT_FILE;
-    Button startBtn, finishBtn, playBtn, stopBtn;
-    final int REQUEST_PERMISSION_CODE = 1000;
+    Button startBtn, finishBtn, playBtn, stopBtn,buttonPerceptiva,buttonQuantitativa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,17 @@ public class GravacaoActivity extends AppCompatActivity {
         playBtn.setOnClickListener((View.OnClickListener) obj);
         stopBtn = (Button) findViewById(R.id.buttonStop);
         stopBtn.setOnClickListener((View.OnClickListener) obj);
+        buttonPerceptiva = findViewById(R.id.buttonAnalisePerceptiva);
+        buttonPerceptiva.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GravacaoActivity.this,TestePertubacaoActivity.class);
+                intent.putExtra("gravacao",OUTPUT_FILE);
+                startActivity(intent);
+            }
+        });
+        buttonQuantitativa=findViewById(R.id.buttonAnaliseQuantitativa);
+        buttonQuantitativa.setEnabled(false);
         Date createdTime = new Date();
         finishBtn.setEnabled(false);
         playBtn.setEnabled(false);
@@ -97,7 +108,7 @@ public class GravacaoActivity extends AppCompatActivity {
             }
 
             mediaPlayer.start();
-            Toast.makeText(getApplicationContext(),"Audio esta tocando",Toast.LENGTH_LONG).show();
+            Toast.makeText(GravacaoActivity.this, OUTPUT_FILE, Toast.LENGTH_SHORT).show();
 
         }
 
