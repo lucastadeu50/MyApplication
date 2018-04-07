@@ -14,6 +14,7 @@ import java.io.IOException;
 
 public class TestePertubacaoActivity extends AppCompatActivity {
     Button buttonAncora, buttonAmostra, buttonMaior,buttonIgual, buttonMenor;
+
     MediaPlayer amostra,gravacao;
 
 
