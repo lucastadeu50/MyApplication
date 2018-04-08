@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.dimasjose.myapplication.R;
+import com.thekhaeng.pushdownanim.PushDownAnim;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,31 +24,45 @@ public class GravacaoActivity extends AppCompatActivity {
     MediaRecorder recorder;
     String OUTPUT_FILE;
     Button startBtn, finishBtn, playBtn, stopBtn,buttonPerceptiva,buttonQuantitativa;
+    double startTime, deltaTime;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gravacao);
         startBtn = (Button) findViewById(R.id.buttonGravar);
+        PushDownAnim.setPushDownAnimTo( startBtn);
+
         startBtn.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()){
                     case MotionEvent.ACTION_DOWN:
+                        startTime = System.currentTimeMillis();
+
                         try {
                             beginRecording();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        return true;
-                    case MotionEvent.ACTION_UP:
-                        stopRecording();
-                        return true;
+                        break;
+                        case MotionEvent.ACTION_UP:
+                        deltaTime = (System.currentTimeMillis() - startTime);
+                        if (deltaTime > 1000) {
+                            stopRecording();
+                            Toast.makeText(getApplicationContext(), "Record " + deltaTime / 1000 + " Sec", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Dont Record " + deltaTime / 1000 + " Sec", Toast.LENGTH_LONG).show();
+                        }
+
+                        break;
                 }
-                return false;
+                return true;
             }
         });
         finishBtn = (Button) findViewById(R.id.buttonPararGravaçao);
+        PushDownAnim.setPushDownAnimTo( finishBtn);
         playBtn = (Button) findViewById(R.id.buttonPlay);
         stopBtn = (Button) findViewById(R.id.buttonStop);
         buttonPerceptiva = findViewById(R.id.buttonAnalisePerceptiva);
@@ -62,7 +77,7 @@ public class GravacaoActivity extends AppCompatActivity {
         buttonQuantitativa=findViewById(R.id.buttonAnaliseQuantitativa);
         buttonQuantitativa.setEnabled(false);
         Date createdTime = new Date();
-        finishBtn.setEnabled(false);
+        finishBtn.setEnabled(true);
         playBtn.setEnabled(false);
         stopBtn.setEnabled(false);
 
