@@ -6,6 +6,7 @@ import android.media.MediaRecorder;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -27,15 +28,28 @@ public class GravacaoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gravacao);
-        Handler obj = new Handler();
         startBtn = (Button) findViewById(R.id.buttonGravar);
-        startBtn.setOnClickListener((View.OnClickListener) obj);
+        startBtn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        try {
+                            beginRecording();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        return true;
+                    case MotionEvent.ACTION_UP:
+                        stopRecording();
+                        return true;
+                }
+                return false;
+            }
+        });
         finishBtn = (Button) findViewById(R.id.buttonPararGravaçao);
-        finishBtn.setOnClickListener((View.OnClickListener) obj);
         playBtn = (Button) findViewById(R.id.buttonPlay);
-        playBtn.setOnClickListener((View.OnClickListener) obj);
         stopBtn = (Button) findViewById(R.id.buttonStop);
-        stopBtn.setOnClickListener((View.OnClickListener) obj);
         buttonPerceptiva = findViewById(R.id.buttonAnalisePerceptiva);
         buttonPerceptiva.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,43 +72,7 @@ public class GravacaoActivity extends AppCompatActivity {
         OUTPUT_FILE = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + UUID.randomUUID().toString() + "_rec.3gp";
     }
 
-
-    public class Handler implements View.OnClickListener {
-        public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.buttonGravar:
-                    try {
-                        beginRecording();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                case R.id.buttonPararGravaçao:
-                    try {
-                        stopRecording();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                case R.id.buttonPlay:
-                    try {
-                        playRecording();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                case R.id.buttonStop:
-                    try {
-                        stopPlayback();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                }
-
-        };
-
-        private void playRecording()  {
+    private void playRecording()  {
             playBtn.setEnabled(false);
             startBtn.setEnabled(false);
             finishBtn.setEnabled(false);
@@ -139,18 +117,19 @@ public class GravacaoActivity extends AppCompatActivity {
         }
 
         private void stopRecording() {
-            if (recorder != null)
+           // if (recorder != null)
                 recorder.stop();
-            finishBtn.setEnabled(false);
-            playBtn.setEnabled(true);
-            startBtn.setEnabled(true);
-            stopBtn.setEnabled(false);
+           // finishBtn.setEnabled(false);
+  //          playBtn.setEnabled(true);
+          //  startBtn.setEnabled(true);
+//            stopBtn.setEnabled(false);
 
 
         }
 
         private void beginRecording() throws IOException {
-            dichtMediaRecorder();
+            if (recorder != null)
+                recorder.release();
             File outFile = new File(OUTPUT_FILE);
             if (outFile.exists())
                 outFile.delete();
@@ -163,10 +142,10 @@ public class GravacaoActivity extends AppCompatActivity {
             recorder.prepare();
             recorder.start();
 
-            finishBtn.setEnabled(true);
-            startBtn.setEnabled(false);
-            playBtn.setEnabled(false);
-            startBtn.setEnabled(false);
+            //finishBtn.setEnabled(true);
+           // startBtn.setEnabled(false);
+           // playBtn.setEnabled(false);
+           // startBtn.setEnabled(false);
         }
 
         private void dichtMediaRecorder() {
@@ -174,4 +153,4 @@ public class GravacaoActivity extends AppCompatActivity {
                 recorder.release();
         }
     }
-}
+

@@ -81,7 +81,7 @@ public class TestePertubacaoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 i = 2*i+1;
-                Toast.makeText(TestePertubacaoActivity.this, Integer.toString(i), Toast.LENGTH_LONG).show();
+                //Toast.makeText(TestePertubacaoActivity.this, Integer.toString(i), Toast.LENGTH_LONG).show();
                 if(i==4){
                     buttonMenor.setEnabled(false);
                 }
