@@ -33,7 +33,6 @@ public class GravacaoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gravacao);
         startBtn = (Button) findViewById(R.id.buttonGravar);
         PushDownAnim.setPushDownAnimTo( startBtn);
-
         startBtn.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -46,7 +45,7 @@ public class GravacaoActivity extends AppCompatActivity {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        break;
+                        return true;
                         case MotionEvent.ACTION_UP:
                         deltaTime = (System.currentTimeMillis() - startTime);
                         if (deltaTime > 1000) {
