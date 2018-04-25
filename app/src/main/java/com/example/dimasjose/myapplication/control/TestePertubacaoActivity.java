@@ -1,5 +1,6 @@
 package com.example.dimasjose.myapplication.control;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AlertDialog;
@@ -40,15 +41,23 @@ public class TestePertubacaoActivity extends AppCompatActivity {
         amostra7 = MediaPlayer.create(TestePertubacaoActivity.this, R.raw.snr0010j020s000vaf220_1);
         mediaPlayer = new MediaPlayer[]{amostra1, amostra2, amostra3, amostra4, amostra5, amostra6, amostra7};
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Resultado do teste");
         builder.setMessage("A amostra" + Integer.toString(i));
-
-
-
-
-
-
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(TestePertubacaoActivity.this, "botao ok", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("Voltar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                i=0;
+            }
+        });
+        builder.setCancelable(false);
+        final AlertDialog start = builder.create();
         Intent intent = getIntent();
         final String OUTPUT_FILE = intent.getStringExtra("gravacao");
 
@@ -81,7 +90,7 @@ public class TestePertubacaoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 i = 2*i+1;
-                //Toast.makeText(TestePertubacaoActivity.this, Integer.toString(i), Toast.LENGTH_LONG).show();
+                Toast.makeText(TestePertubacaoActivity.this, Integer.toString(i), Toast.LENGTH_LONG).show();
                 if(i==4){
                     buttonMenor.setEnabled(false);
                 }
@@ -91,7 +100,9 @@ public class TestePertubacaoActivity extends AppCompatActivity {
         buttonIgual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                start.show();
                 Toast.makeText(TestePertubacaoActivity.this, Integer.toString(i), Toast.LENGTH_LONG).show();
+
 
             }
         });
@@ -101,7 +112,7 @@ public class TestePertubacaoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 i = 2*i+2;
                 Toast.makeText(TestePertubacaoActivity.this, Integer.toString(i), Toast.LENGTH_LONG).show();
-                if (i==13){
+                if (i>=13){
                     buttonMaior.setEnabled(false);
                 }
             }

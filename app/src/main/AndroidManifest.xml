@@ -26,7 +26,8 @@
         <activity android:name=".control.InicarConsultaActivity" />
         <activity android:name=".control.CadastroActivity$GravacaoActivity" />
         <activity android:name=".control.GravacaoActivity" />
-        <activity android:name=".control.TestePertubacaoActivity"></activity>
+        <activity android:name=".control.TestePertubacaoActivity" />
+        <activity android:name=".control.ResultadoActivity"></activity>
     </application>
 
 </manifest>

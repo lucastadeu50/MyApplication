@@ -28,6 +28,7 @@ public class UsuarioBD extends SQLiteOpenHelper{
     public static final String COL4 = "SEXO";
     public static final String COL5 = "OCUPACAO";
     public static final String COL6 = "OBSERVACAO";
+    public static final String COL7 =  "RESULTADO";
 
 
 
@@ -38,7 +39,7 @@ public class UsuarioBD extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE " + TABLE_NAME + " (_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                " NOME, " + " DATADENASCIMENTO, " + " SEXO, " + " OCUPACAO, " + " OBSERVACAO)";
+                " NOME, " + " DATADENASCIMENTO, " + " SEXO, " + " OCUPACAO, " + " OBSERVACAO, " + " RESULTADO)";
         db.execSQL(createTable);
     }
 
@@ -108,7 +109,7 @@ public class UsuarioBD extends SQLiteOpenHelper{
     }
 
     // EDITA UM USUARIO QUE JA ESTA SALVO, FUNCIONA IGUAL A FUNÇÃO DE SALVAR
-    public boolean update(Long id, String nome,String datadenascimento, String sexo,String ocupacao, String obsservacao){
+    public boolean update(Long id, String nome,String datadenascimento, String sexo,String ocupacao, String obsservacao, String resultado){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL1, id);
@@ -117,6 +118,7 @@ public class UsuarioBD extends SQLiteOpenHelper{
         contentValues.put(COL4, sexo);
         contentValues.put(COL5, ocupacao);
         contentValues.put(COL6, obsservacao);
+        contentValues.put(COL7, resultado);
         try {
               sqLiteDatabase.update(TABLE_NAME, contentValues, "_ID=?", new String[]{String.valueOf(id)});
         }finally {
@@ -138,6 +140,7 @@ public class UsuarioBD extends SQLiteOpenHelper{
                 usuario.sexo = cursor.getString(cursor.getColumnIndex("SEXO"));
                 usuario.ocupacao = cursor.getString(cursor.getColumnIndex("OCUPACAO"));
                 usuario.observacao = cursor.getString(cursor.getColumnIndex("OBSERVACAO"));
+                usuario.resultado = cursor.getString(cursor.getColumnIndex("RESULTADO"));
 
 
                 usuarios.add(usuario);

@@ -21,6 +21,7 @@ public class Usuario implements Serializable {
                 ", ocupacao='" + ocupacao + '\'' +
                 ", observacao='" + observacao + '\'' +
                 ", sexo='" + sexo + '\'' +
+                ", resultado='" + resultado + '\'' +
                 '}';
     }
 
@@ -29,5 +30,6 @@ public class Usuario implements Serializable {
     public String ocupacao;
     public String observacao;
     public String sexo;
+    public String resultado;
 
 }
