@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.dimasjose.myapplication.R;
+import com.example.dimasjose.myapplication.model.Usuario;
 import com.thekhaeng.pushdownanim.PushDownAnim;
 
 import java.io.File;
@@ -31,6 +32,15 @@ public class GravacaoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gravacao);
+
+
+        Intent intent = getIntent();
+        final Usuario usuario = (Usuario) getIntent().getSerializableExtra("Editing");
+
+
+
+
+
         startBtn = (Button) findViewById(R.id.buttonGravar);
         PushDownAnim.setPushDownAnimTo( startBtn);
         startBtn.setOnTouchListener(new View.OnTouchListener() {
@@ -63,6 +73,12 @@ public class GravacaoActivity extends AppCompatActivity {
         finishBtn = (Button) findViewById(R.id.buttonPararGravaçao);
         PushDownAnim.setPushDownAnimTo( finishBtn);
         playBtn = (Button) findViewById(R.id.buttonPlay);
+        playBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playRecording();
+            }
+        });
         stopBtn = (Button) findViewById(R.id.buttonStop);
         buttonPerceptiva = findViewById(R.id.buttonAnalisePerceptiva);
         buttonPerceptiva.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +86,7 @@ public class GravacaoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(GravacaoActivity.this,TestePertubacaoActivity.class);
                 intent.putExtra("gravacao",OUTPUT_FILE);
+                intent.putExtra("Editing", usuario);
                 startActivity(intent);
             }
         });
@@ -77,19 +94,19 @@ public class GravacaoActivity extends AppCompatActivity {
         buttonQuantitativa.setEnabled(false);
         Date createdTime = new Date();
         finishBtn.setEnabled(true);
-        playBtn.setEnabled(false);
+        playBtn.setEnabled(true);
         stopBtn.setEnabled(false);
 
 
 
-        //OUTPUT_FILE = Environment.getExternalStorageDirectory() + "/audiorecorder.3gp";
+       // OUTPUT_FILE = Environment.getExternalStorageDirectory().getAbsolutePath() + "/audiorecorder.3gp";
         OUTPUT_FILE = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + UUID.randomUUID().toString() + "_rec.3gp";
     }
 
     private void playRecording()  {
-            playBtn.setEnabled(false);
-            startBtn.setEnabled(false);
-            finishBtn.setEnabled(false);
+         //   playBtn.setEnabled(false);
+           // startBtn.setEnabled(false);
+          //  finishBtn.setEnabled(false);
             stopBtn.setEnabled(true);
             mediaPlayer = new MediaPlayer();
             try {
