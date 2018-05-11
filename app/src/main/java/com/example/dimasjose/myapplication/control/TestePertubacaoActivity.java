@@ -70,9 +70,9 @@ public class TestePertubacaoActivity extends AppCompatActivity {
                 if (outFile.exists())
                     outFile.delete();
                 usuario.resultado = input.getText().toString();
-                Toast.makeText(TestePertubacaoActivity.this, "botao ok", Toast.LENGTH_SHORT).show();
                 update(usuario.id, usuario.nome, usuario.datadenascimento, usuario.sexo, usuario.ocupacao, usuario.observacao,usuario.resultado);
-                finish();
+                Intent inte = new Intent(TestePertubacaoActivity.this, MainActivity.class);
+                startActivity(inte);
 
             }
         });
@@ -163,5 +163,6 @@ public class TestePertubacaoActivity extends AppCompatActivity {
             Toast.makeText(this, "ERRO dado nao adicionado ao banco.", Toast.LENGTH_LONG).show();
         }
     }
+
 }
 
