@@ -65,6 +65,7 @@ public class ConsultaActivity extends AppCompatActivity implements AdapterView.O
         intent.putExtra("observacao", usuario.observacao);
         intent.putExtra("ocupacao", usuario.ocupacao);
         intent.putExtra("id", usuario.id);
+        intent.putExtra("resultado", usuario.resultado);
 
         intent.putExtra("Editing", usuario);
 

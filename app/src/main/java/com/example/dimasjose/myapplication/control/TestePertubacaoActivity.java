@@ -22,10 +22,10 @@ import java.io.IOException;
 public class TestePertubacaoActivity extends AppCompatActivity {
     Button buttonAncora, buttonAmostra, buttonMaior,buttonIgual, buttonMenor;
     private Usuario usuario;
-    private UsuarioBD uuarioBD;
+    private UsuarioBD usuarioBD;
     MediaPlayer amostra1,amostra2,amostra3,amostra4,amostra5,amostra6,amostra7,gravacao;
     MediaPlayer[] mediaPlayer;
-    int i = 0;
+    int i = 0,j=0;
     AlertDialog resultado;
 
 
@@ -47,6 +47,9 @@ public class TestePertubacaoActivity extends AppCompatActivity {
         amostra7 = MediaPlayer.create(TestePertubacaoActivity.this, R.raw.snr0010j020s000vaf220_1);
         mediaPlayer = new MediaPlayer[]{amostra1, amostra2, amostra3, amostra4, amostra5, amostra6, amostra7};
 
+        usuarioBD = new UsuarioBD(this);
+
+
 
         Intent intent = getIntent();
         final String OUTPUT_FILE = intent.getStringExtra("gravacao");
@@ -56,9 +59,8 @@ public class TestePertubacaoActivity extends AppCompatActivity {
         builder.setTitle("Resultado do teste");
         builder.setMessage("A amostra " + Integer.toString(i+1));
         final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_CLASS_TEXT);
-        usuario.resultado = input.getText().toString();
         builder.setView(input);
+
 
 
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -67,7 +69,10 @@ public class TestePertubacaoActivity extends AppCompatActivity {
                 File outFile = new File(OUTPUT_FILE);
                 if (outFile.exists())
                     outFile.delete();
+                usuario.resultado = input.getText().toString();
                 Toast.makeText(TestePertubacaoActivity.this, "botao ok", Toast.LENGTH_SHORT).show();
+                update(usuario.id, usuario.nome, usuario.datadenascimento, usuario.sexo, usuario.ocupacao, usuario.observacao,usuario.resultado);
+                finish();
 
             }
         });
@@ -104,6 +109,7 @@ public class TestePertubacaoActivity extends AppCompatActivity {
                 }
                 gravacao.start();
                 Toast.makeText(TestePertubacaoActivity.this, OUTPUT_FILE, Toast.LENGTH_SHORT).show();
+
             }
         });
         buttonMenor.setOnClickListener(new View.OnClickListener() {
@@ -111,9 +117,12 @@ public class TestePertubacaoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 i = 2*i+1;
                 Toast.makeText(TestePertubacaoActivity.this, Integer.toString(i), Toast.LENGTH_LONG).show();
-                if(i==4){
+                j++;
+                if(i==3){
                     buttonMenor.setEnabled(false);
                 }
+                if(j==3)
+                    start.show();
             }
         });
 
@@ -121,6 +130,7 @@ public class TestePertubacaoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 start.show();
+
                 Toast.makeText(TestePertubacaoActivity.this, Integer.toString(i), Toast.LENGTH_LONG).show();
 
 
@@ -131,13 +141,27 @@ public class TestePertubacaoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 i = 2*i+2;
+                j++;
                 Toast.makeText(TestePertubacaoActivity.this, Integer.toString(i), Toast.LENGTH_LONG).show();
-                if (i>=13){
+                if (i==6){
                     buttonMaior.setEnabled(false);
+                }
+                if(j==3){
+                    start.show();
                 }
             }
         });
 
+    }
+    public void update(Long id, String newEntry, String newEntry2, String newEntry3, String newEntry4, String newEntry5, String newEntry6) {
+
+        boolean insertData = usuarioBD.update(id, newEntry, newEntry2, newEntry3, newEntry4, newEntry5, newEntry6);
+
+        if (insertData == true) {
+            //  Toast.makeText(this, "Dado adicionado ao banco com sucesso.", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "ERRO dado nao adicionado ao banco.", Toast.LENGTH_LONG).show();
+        }
     }
 }
 

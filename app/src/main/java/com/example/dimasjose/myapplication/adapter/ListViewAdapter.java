@@ -38,13 +38,15 @@ private ArrayList<Usuario> usuarios;
         TextView tvDatadenascimento = (TextView) convertView.findViewById(R.id.textViewData);
         TextView tvSexo = (TextView) convertView.findViewById(R.id.textViewSexo);
         TextView tvOcupacao = convertView.findViewById(R.id.textViewOcupacao);
-        TextView tvObservacao = convertView.findViewById(R.id.textViewObervacao);
+        TextView tvObservacao = convertView.findViewById(R.id.textViewObservacao);
+        TextView tvResultado = convertView.findViewById(R.id.textViewResultado);
 
         tvNome.setText(usuario.nome);
         tvDatadenascimento.setText(usuario.datadenascimento);
         tvSexo.setText(usuario.sexo);
         tvOcupacao.setText(usuario.ocupacao);
         tvObservacao.setText(usuario.observacao);
+        tvResultado.setText(usuario.resultado);
         return convertView;
     }
 }
