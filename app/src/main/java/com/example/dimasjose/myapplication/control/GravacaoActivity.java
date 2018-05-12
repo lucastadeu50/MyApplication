@@ -1,5 +1,6 @@
 package com.example.dimasjose.myapplication.control;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
@@ -90,8 +91,21 @@ public class GravacaoActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         buttonQuantitativa=findViewById(R.id.buttonAnaliseQuantitativa);
-        buttonQuantitativa.setEnabled(false);
+        buttonQuantitativa.setEnabled(true);
+        buttonQuantitativa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // Intent intent = new Intent();
+              //  intent.setComponent(new ComponentName("com.termux", null));
+             //   startActivity(intent);
+                Intent termux = new Intent();
+                 termux = getPackageManager().getLaunchIntentForPackage("com.termux");
+                startActivity(termux);
+
+            }
+        });
         Date createdTime = new Date();
         finishBtn.setEnabled(true);
         playBtn.setEnabled(true);

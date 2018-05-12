@@ -26,7 +26,8 @@ public class TestePertubacaoActivity extends AppCompatActivity {
     MediaPlayer amostra1,amostra2,amostra3,amostra4,amostra5,amostra6,amostra7,gravacao;
     MediaPlayer[] mediaPlayer;
     int i = 0,j=0;
-    AlertDialog resultado;
+    double resultado;
+
 
 
     @Override
@@ -47,18 +48,70 @@ public class TestePertubacaoActivity extends AppCompatActivity {
         amostra7 = MediaPlayer.create(TestePertubacaoActivity.this, R.raw.snr0010j020s000vaf220_1);
         mediaPlayer = new MediaPlayer[]{amostra1, amostra2, amostra3, amostra4, amostra5, amostra6, amostra7};
 
+
+
         usuarioBD = new UsuarioBD(this);
-
-
+        String igual="igual";
+        String maior="maior";
+        String menor="menor";
 
         Intent intent = getIntent();
         final String OUTPUT_FILE = intent.getStringExtra("gravacao");
         final Usuario usuario = (Usuario) getIntent().getSerializableExtra("Editing");
 
+
+        if(i==0) {
+        resultado = 1.5;
+        }
+
+        if(i==1) {
+            resultado = 0.5;
+        }
+        if(i==2) {
+            resultado = 2.5;
+        }
+        if(i==3) {
+            resultado = 0;
+        }
+        if(i==4) {
+            resultado = 1.0;
+        }
+        if(i==5) {
+            resultado = 2.0;
+        }
+        if(i==6) {
+            resultado = 3.0;
+        }
+        if(i==8) {
+            resultado = 0.25;
+        }
+
+        if(i==9) {
+            resultado = 0.75;
+        }
+        if(i==10) {
+            resultado = 1.25;
+        }
+
+        if(i==11) {
+            resultado = 1.75;
+        }
+
+        if(i==12) {
+            resultado = 2.25;
+        }
+
+        if(i==13) {
+            resultado = 2.75;
+        }
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Resultado do teste");
-        builder.setMessage("A amostra " + Integer.toString(i+1));
+
+
+        builder.setMessage("O resultado do teste é igual a " + Double.toString(resultado));
         final EditText input = new EditText(this);
+        input.setText(usuario.observacao);
+
         builder.setView(input);
 
 
@@ -69,7 +122,8 @@ public class TestePertubacaoActivity extends AppCompatActivity {
                 File outFile = new File(OUTPUT_FILE);
                 if (outFile.exists())
                     outFile.delete();
-                usuario.resultado = input.getText().toString();
+                usuario.resultado = String.valueOf(resultado);
+                usuario.observacao = input.getText().toString();
                 update(usuario.id, usuario.nome, usuario.datadenascimento, usuario.sexo, usuario.ocupacao, usuario.observacao,usuario.resultado);
                 Intent inte = new Intent(TestePertubacaoActivity.this, MainActivity.class);
                 startActivity(inte);
@@ -84,6 +138,8 @@ public class TestePertubacaoActivity extends AppCompatActivity {
         });
         builder.setCancelable(false);
         final AlertDialog start = builder.create();
+
+
 
 
 
