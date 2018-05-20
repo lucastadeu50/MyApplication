@@ -3,9 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyApplication.iml" filepath="$PROJECT_DIR$/MyApplication.iml" />
-      <module fileurl="file://C:\Users\dimas jose\Desktop\APP\MyApplication\.idea\MyApplication.iml" filepath="C:\Users\dimas jose\Desktop\APP\MyApplication\.idea\MyApplication.iml" />
-      <module fileurl="file://C:\Users\Alexandre\Desktop\App\MyApplication\MyApplication.iml" filepath="C:\Users\Alexandre\Desktop\App\MyApplication\MyApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/MyApplication.iml" filepath="$PROJECT_DIR$/.idea/MyApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../Alexandre/Desktop/App/MyApplication/MyApplication.iml" filepath="$PROJECT_DIR$/../../../../Alexandre/Desktop/App/MyApplication/MyApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fftpack-master/fftpack-master.iml" filepath="$PROJECT_DIR$/fftpack-master/fftpack-master.iml" />
     </modules>
   </component>
 </project>
