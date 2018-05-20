@@ -12,8 +12,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".control.MainActivity">
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".control.TelaInicialActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,10 +24,13 @@
         <activity android:name=".control.CadastroActivity" />
         <activity android:name=".control.EdicaoActivity" />
         <activity android:name=".control.InicarConsultaActivity" />
-        <activity android:name=".control.CadastroActivity$GravacaoActivity" />
+       <!--- <activity android:name=".control.CadastroActivity$GravacaoActivity" /> -->>
         <activity android:name=".control.GravacaoActivity" />
         <activity android:name=".control.TestePertubacaoActivity" />
-        <activity android:name=".control.ResultadoActivity"></activity>
+        <activity android:name=".control.ResultadoActivity" />
+        <activity android:name=".control.MainActivity"/>
+
+
     </application>
 
 </manifest>

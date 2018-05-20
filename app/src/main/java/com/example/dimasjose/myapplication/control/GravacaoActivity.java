@@ -7,6 +7,7 @@ import android.media.MediaRecorder;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +17,11 @@ import com.example.dimasjose.myapplication.R;
 import com.example.dimasjose.myapplication.model.Usuario;
 import com.thekhaeng.pushdownanim.PushDownAnim;
 
+import org.apache.commons.net.ftp.FTP;
+import org.apache.commons.net.ftp.FTPClient;
+
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Date;
 import java.util.UUID;
@@ -97,12 +102,7 @@ public class GravacaoActivity extends AppCompatActivity {
         buttonQuantitativa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // Intent intent = new Intent();
-              //  intent.setComponent(new ComponentName("com.termux", null));
-             //   startActivity(intent);
-                Intent termux = new Intent();
-                 termux = getPackageManager().getLaunchIntentForPackage("com.termux");
-                startActivity(termux);
+              upload();
 
             }
         });
@@ -116,6 +116,40 @@ public class GravacaoActivity extends AppCompatActivity {
        // OUTPUT_FILE = Environment.getExternalStorageDirectory().getAbsolutePath() + "/audiorecorder.3gp";
         OUTPUT_FILE = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + UUID.randomUUID().toString() + "_rec.3gp";
     }
+
+
+    public void upload(){
+
+
+        FTPClient con = null;
+
+        try
+        {
+            con = new FTPClient();
+            con.connect("192.168.2.17");
+
+            if (con.login("acoustic", "acoustic2018"))
+            {
+                con.enterLocalPassiveMode(); // important!
+                con.setFileType(FTP.BINARY_FILE_TYPE);
+                String data = OUTPUT_FILE;
+
+                FileInputStream in = new FileInputStream(new File(data));
+                boolean result = con.storeFile("audiorecorder.3gp", in);
+                in.close();
+                if (result) Log.v("upload result", "succeeded");
+                con.logout();
+                con.disconnect();
+            }
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
 
     private void playRecording()  {
          //   playBtn.setEnabled(false);
