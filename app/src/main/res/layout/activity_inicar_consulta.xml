@@ -8,6 +8,7 @@
     tools:context="com.example.dimasjose.myapplication.control.InicarConsultaActivity">
 
     <ListView
+        android:cacheColorHint="#ffffcc"
         android:id="@+id/listViewIniciarConsulta"
         android:layout_width="0dp"
         android:layout_height="0dp"
