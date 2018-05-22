@@ -1,10 +1,11 @@
 package com.example.dimasjose.myapplication.control;
 
-import android.content.ComponentName;
+//import android.content.ComponentName;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Environment;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+
 
 import com.example.dimasjose.myapplication.R;
 import com.example.dimasjose.myapplication.model.Usuario;
@@ -44,7 +47,9 @@ public class GravacaoActivity extends AppCompatActivity {
         final Usuario usuario = (Usuario) getIntent().getSerializableExtra("Editing");
 
 
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 
+        StrictMode.setThreadPolicy(policy);
 
 
         startBtn = (Button) findViewById(R.id.buttonGravar);
@@ -126,7 +131,7 @@ public class GravacaoActivity extends AppCompatActivity {
         try
         {
             con = new FTPClient();
-            con.connect("192.168.2.17");
+            con.connect("acoustic.ddns.net",2121);
 
             if (con.login("acoustic", "acoustic2018"))
             {
