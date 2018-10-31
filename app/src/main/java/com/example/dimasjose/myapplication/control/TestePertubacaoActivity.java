@@ -10,6 +10,7 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.dimasjose.myapplication.R;
@@ -27,6 +28,7 @@ public class TestePertubacaoActivity extends AppCompatActivity {
     MediaPlayer[] mediaPlayer;
     int i = 0,j=0;
     double resultado;
+    private ImageButton botaoVoltar;
 
 
 
@@ -34,6 +36,16 @@ public class TestePertubacaoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teste_pertubacao);
+
+        botaoVoltar = findViewById(R.id.imagemBotaoVoltarId);
+        botaoVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(TestePertubacaoActivity.this, GravacaoActivity.class));
+            }
+        });
+
+
         buttonAncora = findViewById(R.id.buttonPlayAncora);
         buttonAmostra = findViewById(R.id.buttonPlayGravacao);
         buttonMaior = findViewById(R.id.buttonMaior);

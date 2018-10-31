@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".control.GravacaowavActivity">
+
+    <Button
+        android:id="@+id/buttonGravar"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/mybutton"
+        android:drawableTint="#6666cc"
+        android:text="Gravar"
+        android:textColor="@color/cor_titulo_caixa_texto"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonPlay"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/mybutton"
+        android:drawableTint="#6666cc"
+        android:text="Ouvir Gravação"
+        android:textColor="@color/cor_titulo_caixa_texto"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView15"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPararGravaçao" />
+
+    <Button
+        android:id="@+id/buttonAnalisePerceptiva"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/mybutton"
+        android:text="Análise Perceptiva"
+        android:textColor="@color/cor_titulo_caixa_texto"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView17"
+        app:layout_constraintTop_toBottomOf="@+id/buttonStop" />
+
+    <Button
+        android:id="@+id/buttonAnaliseQuantitativa"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/mybutton"
+        android:text="Análise Quantitativa"
+        android:textColor="@color/cor_titulo_caixa_texto"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView18"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAnalisePerceptiva" />
+
+    <Button
+        android:id="@+id/buttonPararGravacao"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/mybutton"
+        android:drawableTint="#6666cc"
+        android:text="Parar Gravação"
+        android:textColor="@color/cor_titulo_caixa_texto"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView14"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGravar" />
+
+    <Button
+        android:id="@+id/buttonStop"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/mybutton"
+        android:drawableTint="#6666cc"
+        android:text="Stop"
+        android:textColor="@color/cor_titulo_caixa_texto"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView16"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPlay" />
+
+    <ImageButton
+        android:id="@+id/imagemBotaoVoltarId"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/background_light"
+        android:src="@drawable/voltar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="19dp"
+        android:paddingLeft="5dp"
+        android:text="Voltar"
+        android:textColor="@color/cor_principal"
+        android:textSize="@dimen/tamanho_titulos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imagemBotaoVoltarId" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="70dp"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonGravar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/microphone" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="70dp"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonPararGravacao"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/botaopause" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="70dp"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonPlay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/altofalante" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="70dp"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonStop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/stop" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="70dp"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonAnalisePerceptiva"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/percepcao" />
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="70dp"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonAnaliseQuantitativa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/binario" />
+
+</android.support.constraint.ConstraintLayout>

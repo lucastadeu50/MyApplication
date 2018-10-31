@@ -1,12 +1,15 @@
 package com.example.dimasjose.myapplication.control;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import  android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -22,12 +25,21 @@ public class CadastroActivity extends AppCompatActivity {
     Spinner spinnersexo;
     EditText edtNone, edtDatadeNascimento, edtOcupacao, edtObservacao;
     private UsuarioBD usuarioBD;
+    private ImageButton botaoVoltar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
+
+        botaoVoltar = findViewById(R.id.imagemBotaoVoltarId);
+        botaoVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CadastroActivity.this, MainActivity.class));
+            }
+        });
 
 
         //CRIA O SPINNER, PEGA OS ITENS LA DO ARQUIVO DE STRINGS
@@ -44,6 +56,7 @@ public class CadastroActivity extends AppCompatActivity {
         edtDatadeNascimento = findViewById(R.id.edtDatadeNascimento);
         edtOcupacao = findViewById(R.id.edtOcupacao);
         edtObservacao = findViewById(R.id.edtObservacao);
+
     }
 
         //CRIA O MENU QUE APARECE NA BARRA AZUL

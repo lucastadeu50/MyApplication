@@ -4,21 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6666cc"
+    android:background="@color/cor_titulo_caixa_texto"
     tools:context="com.example.dimasjose.myapplication.control.InicarConsultaActivity">
 
     <ListView
-        android:cacheColorHint="#ffffcc"
         android:id="@+id/listViewIniciarConsulta"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="373dp"
 
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:cacheColorHint="#ffffcc"
+        app:layout_constraintBottom_toTopOf="@+id/imagemBotaoVoltarId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Iniciar consulta"
+        android:textColor="@color/cor_principal"
+        android:textSize="@dimen/tamanho_titulos"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imagemBotaoVoltarId"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/background_light"
+        android:src="@drawable/voltar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="19dp"
+        android:paddingLeft="5dp"
+        android:text="Voltar"
+        android:textColor="@color/cor_principal"
+        android:textSize="@dimen/tamanho_titulos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imagemBotaoVoltarId" />
+
 </android.support.constraint.ConstraintLayout>

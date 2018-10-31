@@ -3,4 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ff4081</color>
+    <color name="my_spinner_text_color">#ffffcc</color>
+    <color name="cor_principal">#de4a1265</color>
+    <color name="cor_textos">#010000</color>
+    <color name="cor_titulo_caixa_texto">#ffffff</color>
 </resources>

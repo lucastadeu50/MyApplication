@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.example.dimasjose.myapplication.R;
@@ -20,11 +21,23 @@ public class InicarConsultaActivity extends AppCompatActivity implements Adapter
     ListView listViewIniciarConsulta;
     private UsuarioBD usuarioBD;
     public Usuario usuario;
+    private ImageButton botaoVoltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicar_consulta);
+
+
+        botaoVoltar = findViewById(R.id.imagemBotaoVoltarId);
+        botaoVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(InicarConsultaActivity.this, MainActivity.class));
+            }
+        });
+
+
         listViewIniciarConsulta = findViewById(R.id.listViewIniciarConsulta);
         listViewIniciarConsulta.setOnItemClickListener(this);
 
@@ -45,7 +58,7 @@ public class InicarConsultaActivity extends AppCompatActivity implements Adapter
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
         usuario = (Usuario) adapterView.getAdapter().getItem(position); // Salva o item que foi clickado na memoria ram
-        Intent intent = new Intent(InicarConsultaActivity.this, GravacaoActivity.class); // chama a classe de edição
+        Intent intent = new Intent(InicarConsultaActivity.this, GravacaowavActivity.class); // chama a classe de edição
 
         //   PUT EXTRA, serve pra levar os dados do usuario de uma tela pra outra,
         // como se voce tivesse colocando o usuario dentro de um carro e levando ele de uma cidade pra outra

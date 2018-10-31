@@ -4,13 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/background_light"
     tools:context="com.example.dimasjose.myapplication.control.CadastroActivity">
+
     <TextView
         android:id="@+id/txtNome"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="21dp"
         android:layout_marginTop="16dp"
+        android:paddingLeft="10dp"
         android:text="Nome"
+        android:textColor="@color/cor_principal"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,6 +27,10 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@color/cor_textos"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="@+id/txtNome"
         app:layout_constraintStart_toStartOf="@+id/txtNome"
         app:layout_constraintTop_toBottomOf="@+id/txtNome" />
@@ -30,7 +40,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:paddingLeft="10dp"
         android:text="Data de Nascimento"
+        android:textColor="@color/cor_principal"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/edtNome"
         app:layout_constraintStart_toStartOf="@+id/edtNome"
         app:layout_constraintTop_toBottomOf="@+id/edtNome" />
@@ -41,6 +55,10 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="date"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@color/cor_textos"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="@+id/txtDatadeNascimento"
         app:layout_constraintStart_toStartOf="@+id/txtDatadeNascimento"
         app:layout_constraintTop_toBottomOf="@+id/txtDatadeNascimento" />
@@ -50,7 +68,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:paddingLeft="10dp"
         android:text="Sexo"
+        android:textColor="@color/cor_principal"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/edtDatadeNascimento"
         app:layout_constraintStart_toStartOf="@+id/edtDatadeNascimento"
         app:layout_constraintTop_toBottomOf="@+id/edtDatadeNascimento" />
@@ -59,6 +81,8 @@
         android:id="@+id/spinnerSexo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textColor="@color/cor_textos"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/txtSexo"
         app:layout_constraintTop_toBottomOf="@+id/txtSexo" />
@@ -68,7 +92,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:paddingLeft="10dp"
         android:text="Ocupação Princiapal"
+        android:textColor="@color/cor_principal"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerSexo" />
@@ -79,6 +107,10 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@color/cor_textos"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="@+id/txtOcupacao"
         app:layout_constraintStart_toStartOf="@+id/txtOcupacao"
         app:layout_constraintTop_toBottomOf="@+id/txtOcupacao" />
@@ -88,7 +120,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:paddingLeft="10dp"
         android:text="Observação"
+        android:textColor="@color/cor_principal"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/edtOcupacao"
         app:layout_constraintStart_toStartOf="@+id/edtOcupacao"
         app:layout_constraintTop_toBottomOf="@+id/edtOcupacao" />
@@ -99,8 +135,35 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textMultiLine"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@color/cor_textos"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="@+id/txtObservacao"
         app:layout_constraintStart_toStartOf="@+id/txtObservacao"
         app:layout_constraintTop_toBottomOf="@+id/txtObservacao" />
+
+    <ImageButton
+        android:id="@+id/imagemBotaoVoltarId"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/background_light"
+        android:src="@drawable/voltar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="19dp"
+        android:paddingLeft="5dp"
+        android:text="Voltar"
+        android:textColor="@color/cor_principal"
+        android:textSize="@dimen/tamanho_titulos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imagemBotaoVoltarId" />
 
 </android.support.constraint.ConstraintLayout>

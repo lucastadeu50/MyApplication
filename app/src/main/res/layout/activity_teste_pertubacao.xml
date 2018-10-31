@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6666cc"
+    android:background="@android:color/background_light"
     tools:context="com.example.dimasjose.myapplication.control.TestePertubacaoActivity">
 
     <TextView
         android:id="@+id/textViewInstrucao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="A amostra gravada apresenta pertubação maior, menor ou igual a ancora?"
-        android:textColor="#ffffff"
+        android:textColor="@android:color/black"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,19 +27,15 @@
         android:id="@+id/buttonPlayAncora"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/mybutton"
-        android:drawableLeft="@android:drawable/ic_media_play"
         android:drawableTint="#6666cc"
         android:text="Ancora"
-        android:textColor="#6666cc"
+        android:textColor="@color/cor_titulo_caixa_texto"
         android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/textViewInstrucao"
-        app:layout_constraintStart_toStartOf="@+id/textViewInstrucao"
+        app:layout_constraintStart_toEndOf="@+id/imageView11"
         app:layout_constraintTop_toBottomOf="@+id/textViewInstrucao" />
 
     <Button
@@ -48,51 +44,114 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/mybutton"
-        android:drawableLeft="@android:drawable/ic_media_play"
         android:drawableTint="#6666cc"
-        android:text="Gravacao"
-        android:textColor="#6666cc"
+        android:text="Gravação"
+        android:textColor="@color/cor_titulo_caixa_texto"
         android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/buttonPlayAncora"
-        app:layout_constraintStart_toStartOf="@+id/buttonPlayAncora"
+        app:layout_constraintStart_toEndOf="@+id/imageView12"
         app:layout_constraintTop_toBottomOf="@+id/buttonPlayAncora" />
 
     <Button
         android:id="@+id/buttonMenor"
-        android:layout_width="0dp"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/mybutton"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_direito_arredondado"
         android:text="Menor"
-        android:textColor="#6666cc"
+        android:textColor="@color/cor_titulo_caixa_texto"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/buttonIgual"
-        app:layout_constraintStart_toStartOf="@+id/buttonIgual"
-        app:layout_constraintTop_toBottomOf="@+id/buttonIgual" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/buttonPlayGravacao"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPlayGravacao" />
 
     <Button
         android:id="@+id/buttonIgual"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/mybutton"
+        android:layout_height="0dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginStart="2dp"
+        android:background="@color/cor_principal"
         android:text="Igual"
-        android:textColor="#6666cc"
+        android:textColor="@color/cor_titulo_caixa_texto"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/buttonMaior"
-        app:layout_constraintStart_toStartOf="@+id/buttonMaior"
-        app:layout_constraintTop_toBottomOf="@+id/buttonMaior" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonMaior"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMenor"
+        app:layout_constraintStart_toEndOf="@+id/buttonMaior"
+        app:layout_constraintTop_toTopOf="@+id/buttonMenor" />
 
     <Button
         android:id="@+id/buttonMaior"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_esquerdo"
+        android:text="Maior"
+        android:textColor="@color/cor_titulo_caixa_texto"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageView21"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPlayGravacao" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="70dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonPlayAncora"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonPlayAncora"
+        app:srcCompat="@drawable/ancora" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="70dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonPlayGravacao"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonPlayGravacao"
+        app:srcCompat="@drawable/disco" />
+
+    <ImageView
+        android:id="@+id/imageView21"
+        android:layout_width="70dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonMaior"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonMaior"
+        app:srcCompat="@drawable/tamanho" />
+
+
+    <ImageButton
+        android:id="@+id/imagemBotaoVoltarId"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/background_light"
+        android:src="@drawable/voltar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/mybutton"
-        android:text="Maior"
-        android:textColor="#6666cc"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/buttonPlayGravacao"
-        app:layout_constraintStart_toStartOf="@+id/buttonPlayGravacao"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPlayGravacao" />
+        android:layout_marginBottom="19dp"
+        android:paddingLeft="5dp"
+        android:text="Voltar"
+        android:textColor="@color/cor_principal"
+        android:textSize="@dimen/tamanho_titulos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imagemBotaoVoltarId" />
 </android.support.constraint.ConstraintLayout>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1000198550542",
+    "firebase_url": "https://novovoiceanalisys.firebaseio.com",
+    "project_id": "novovoiceanalisys",
+    "storage_bucket": "novovoiceanalisys.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000198550542:android:67fc53b7b43ba3ff",
+        "android_client_info": {
+          "package_name": "com.example.dimasjose.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1000198550542-o7232t8q9vbjn4kbrp9c7pe2t8619n4r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4IoGqwOkMYUKSDwbcPckRCG_lhieRv24"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

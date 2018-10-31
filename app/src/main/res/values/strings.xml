@@ -19,5 +19,6 @@
         <item>Feminino</item>
         <item>Masculino</item>
     </string-array>
+    <string name="texto_servico">servico</string>
 
 </resources>

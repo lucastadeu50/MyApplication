@@ -1,0 +1,66 @@
+Index: app/src/main/res/layout/activity_consulta.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_consulta.xml	(revision 2bce2f049a31eba777278bf98770bc5eb417bd63)
++++ app/src/main/res/layout/activity_consulta.xml	(date 1527021441011)
+@@ -4,6 +4,7 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
++    android:background="#6666cc"
+     tools:context="com.example.dimasjose.myapplication.control.ConsultaActivity">
+ 
+     <ListView
+Index: app/src/main/res/layout/activity_inicar_consulta.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_inicar_consulta.xml	(revision 2bce2f049a31eba777278bf98770bc5eb417bd63)
++++ app/src/main/res/layout/activity_inicar_consulta.xml	(date 1527020738387)
+@@ -8,6 +8,7 @@
+     tools:context="com.example.dimasjose.myapplication.control.InicarConsultaActivity">
+ 
+     <ListView
++        android:cacheColorHint="#ffffcc"
+         android:id="@+id/listViewIniciarConsulta"
+         android:layout_width="0dp"
+         android:layout_height="0dp"
+Index: app/src/main/res/layout/adapter_iniciarconsulta.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/adapter_iniciarconsulta.xml	(revision 2bce2f049a31eba777278bf98770bc5eb417bd63)
++++ app/src/main/res/layout/adapter_iniciarconsulta.xml	(date 1527021260632)
+@@ -2,11 +2,13 @@
+ <android.support.constraint.ConstraintLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:background="#6666cc"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
+ 
+ 
++
+     <TextView
+         android:id="@+id/textViewNome2"
+         android:layout_width="0dp"
+Index: app/src/main/res/layout/adapter_layout_relative.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/adapter_layout_relative.xml	(revision 2bce2f049a31eba777278bf98770bc5eb417bd63)
++++ app/src/main/res/layout/adapter_layout_relative.xml	(date 1527020503120)
+@@ -47,6 +47,7 @@
+         android:layout_width="0dp"
+         android:layout_height="17dp"
+         android:text="Nome:"
++        android:textColor="#ffffff"
+         app:layout_constraintLeft_toLeftOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="@+id/textViewNome" />

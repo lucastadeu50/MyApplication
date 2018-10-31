@@ -8,15 +8,14 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".control.TelaInicialActivity">
+        android:theme="@style/AppTheme">
+        <activity android:name=".control.LoginUsuarioActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,13 +26,26 @@
         <activity android:name=".control.CadastroActivity" />
         <activity android:name=".control.EdicaoActivity" />
         <activity android:name=".control.InicarConsultaActivity" />
-       <!--- <activity android:name=".control.CadastroActivity$GravacaoActivity" /> -->>
+        <!-- <activity android:name=".control.CadastroActivity" /> -->
         <activity android:name=".control.GravacaoActivity" />
         <activity android:name=".control.TestePertubacaoActivity" />
-        <activity android:name=".control.ResultadoActivity" />
-        <activity android:name=".control.MainActivity"/>
+        <activity android:name=".control.Contato" />
+        <activity android:name=".control.Servico" />
+        <activity android:name=".control.ParaQuemTrabalhamos" />
+        <activity android:name=".control.SobreOAplicativo" />
+        <!-- <activity android:name=".control.UsuarioLogin" /> -->
+        <activity
+            android:name=".control.CadastroUsuarioActivity"
+            android:parentActivityName=".control.MainActivity" />
+        />
+        <activity android:name=".control.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".control.GravacaowavActivity"></activity>
     </application>
 
 </manifest>

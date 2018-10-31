@@ -3,6 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/action_voltar"
+        android:icon="?attr/actionModeCloseDrawable"
+        android:title="voltar"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/item_salvar"
         android:icon="@android:drawable/ic_menu_save"
         android:title="Item"
@@ -12,9 +17,6 @@
         android:icon="@android:drawable/ic_menu_delete"
         android:title="Item"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/item_voltar"
-        android:icon="@android:drawable/ic_menu_close_clear_cancel"
-        android:title="Item"
-        app:showAsAction="ifRoom" />
+
+
 </menu>

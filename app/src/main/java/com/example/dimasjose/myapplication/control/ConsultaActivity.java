@@ -1,11 +1,13 @@
 package com.example.dimasjose.myapplication.control;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.example.dimasjose.myapplication.R;
@@ -20,8 +22,10 @@ public class ConsultaActivity extends AppCompatActivity implements AdapterView.O
     ListView listView; // declara a listview
     private UsuarioBD usuarioBD; // declara um objeto da classe usuarioBD
     public Usuario usuario; // declara um objeto da classe usuario
-    Button voltar; // declara o botao voltar
+    //Button voltar; // declara o botao voltar
+    private ImageButton voltar;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +36,16 @@ public class ConsultaActivity extends AppCompatActivity implements AdapterView.O
         usuario = new Usuario(); // cria um novo usuario na memoria ram do celular
         listView = (ListView) findViewById(R.id.listView); // conecta a listview com o xml
         listView.setOnItemClickListener(this); // cria um ouvinte na listview, ativa  a função de clickar em um item da lista
-        voltar = findViewById(R.id.buttonvoltar); // conecta o voltar com xml
+        voltar = findViewById(R.id.imagemBotaoVoltarId); // conecta o voltar com xml
         voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ConsultaActivity.this, MainActivity.class);//volta pro menu principal quando clicka em voltar
                 startActivity(intent);
+
+
+
+
             }
         });
 

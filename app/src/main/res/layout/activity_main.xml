@@ -4,55 +4,167 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6666cc"
+    android:background="@android:color/background_light"
     tools:context="com.example.dimasjose.myapplication.control.MainActivity">
 
 
     <Button
-        android:background="@drawable/mybutton"
 
         android:id="@+id/buttonIncluir"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="55dp"
-        android:textColor="#6666cc"
-        android:textSize="20dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/mybutton"
         android:text="Incluir Paciente"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonConsultar"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="55dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/mybutton"
         android:text="Pacientes Cadastrados"
-        android:textColor="#6666cc"
+        android:textColor="@color/cor_titulo_caixa_texto"
         android:textSize="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/buttonIncluir"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView7"
         app:layout_constraintTop_toBottomOf="@+id/buttonIncluir" />
 
     <Button
         android:id="@+id/buttonIniciarConsulta"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="55dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/mybutton"
         android:text="Iniciar Consulta"
-        android:textColor="#6666cc"
+        android:textColor="@android:color/white"
         android:textSize="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/buttonConsultar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
         app:layout_constraintTop_toBottomOf="@+id/buttonConsultar" />
+
+    <TextView
+        android:id="@+id/botaoSobreId"
+        android:layout_width="202dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:paddingLeft="10dp"
+        android:text="Sobre o aplicativo"
+        android:textColor="@color/cor_textos"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/ParaQuemTrabalhamosId"
+        app:layout_constraintStart_toEndOf="@+id/imageView19" />
+
+    <TextView
+        android:id="@+id/botaoServicoId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:paddingLeft="10dp"
+        android:text="Serviço"
+        android:textColor="@color/cor_textos"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/ContatoId"
+        app:layout_constraintStart_toEndOf="@+id/imageView9" />
+
+    <TextView
+        android:id="@+id/ContatoId"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginBottom="8dp"
+        android:paddingLeft="10dp"
+        android:text="Contato"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/botaoSobreId"
+        app:layout_constraintStart_toEndOf="@+id/imageView10" />
+
+    <TextView
+        android:id="@+id/ParaQuemTrabalhamosId"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="16dp"
+        android:paddingLeft="10dp"
+        android:text="Para quem trabalhamos"
+        android:textColor="@color/cor_textos"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView20" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="70dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonIncluir"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/adicionarusuario" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="70dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonConsultar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/cadastrados" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="70dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonIniciarConsulta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/iniciarfoguete" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="50dp"
+        android:layout_height="32dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/botaoServicoId"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/megafoneroxo" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="50dp"
+        android:layout_height="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ContatoId"
+        app:layout_constraintStart_toStartOf="@+id/imageView9"
+        app:srcCompat="@drawable/megafoneroxo" />
+
+    <ImageView
+        android:id="@+id/imageView19"
+        android:layout_width="50dp"
+        android:layout_height="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/botaoSobreId"
+        app:layout_constraintStart_toStartOf="@+id/imageView10"
+        app:srcCompat="@drawable/megafoneroxo" />
+
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="50dp"
+        android:layout_height="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ParaQuemTrabalhamosId"
+        app:layout_constraintStart_toStartOf="@+id/imageView19"
+        app:srcCompat="@drawable/megafoneroxo" />
 
 
 </android.support.constraint.ConstraintLayout>

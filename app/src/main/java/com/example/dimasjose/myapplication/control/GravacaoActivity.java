@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 
@@ -35,12 +36,22 @@ public class GravacaoActivity extends AppCompatActivity {
     String OUTPUT_FILE;
     Button startBtn, finishBtn, playBtn, stopBtn,buttonPerceptiva,buttonQuantitativa;
     double startTime, deltaTime;
+    private ImageButton botaoVoltar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gravacao);
+
+
+        botaoVoltar = findViewById(R.id.imagemBotaoVoltarId);
+        botaoVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(GravacaoActivity.this, InicarConsultaActivity.class));
+            }
+        });
 
 
         Intent intent = getIntent();
@@ -221,10 +232,11 @@ public class GravacaoActivity extends AppCompatActivity {
             recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
             recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
             recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-
             recorder.setOutputFile(OUTPUT_FILE);
             recorder.prepare();
             recorder.start();
+
+
 
             //finishBtn.setEnabled(true);
            // startBtn.setEnabled(false);
