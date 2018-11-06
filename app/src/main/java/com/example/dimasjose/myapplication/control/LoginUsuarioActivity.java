@@ -51,13 +51,18 @@ public class LoginUsuarioActivity extends AppCompatActivity {
         botaoLogar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                usuario = new UsuarioLogin(); //instanciando a classe usuariio
+                if (!email.getText().toString().equals("") && !email.getText().toString().equals("")){
+                    usuario = new UsuarioLogin(); //instanciando a classe usuariio
                 usuario.setEmail(email.getText().toString());
                 usuario.setSenha(senha.getText().toString());
                 validarLogin();//método que vou criar para fazer a validação do usuario
-
+            }else {
+                    email.requestFocus();
+                    Toast.makeText(LoginUsuarioActivity.this, "Digite o email e a senha", Toast.LENGTH_SHORT).show();
+                }
             }
-        });
+            }
+            );
 
     }
 
@@ -81,10 +86,10 @@ public class LoginUsuarioActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     abrirTelaPrincipal();//se o login for realizado com sucesso o app vai para a tela principal
-                    Toast.makeText(LoginUsuarioActivity.this, "Login efetuado", Toast.LENGTH_SHORT).show();;
+                 //   Toast.makeText(LoginUsuarioActivity.this, "Login efetuado", Toast.LENGTH_SHORT).show();;
 
                 }else{
-                    Toast.makeText(LoginUsuarioActivity.this, "Login NÂO efetuado", Toast.LENGTH_SHORT).show();;
+                    Toast.makeText(LoginUsuarioActivity.this, "Email não cadastro ou senha errada", Toast.LENGTH_SHORT).show();;
                 }
             }
         });

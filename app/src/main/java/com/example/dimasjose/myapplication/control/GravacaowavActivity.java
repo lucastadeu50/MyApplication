@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.dimasjose.myapplication.R;
 import com.example.dimasjose.myapplication.model.Usuario;
+import com.thekhaeng.pushdownanim.PushDownAnim;
 
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
@@ -33,9 +34,9 @@ import java.util.UUID;
 
 public class GravacaowavActivity extends AppCompatActivity {
 
-    String OUTPUT_FILE, OUTPUT_FILE2;
+    String OUTPUT_FILE;
     MediaPlayer mediaPlayer;
-    Button startBtn, finishBtn, playBtn, stopBtn,buttonPerceptiva,buttonQuantitativa;
+    Button startBtn, pararGravacaoBtn, playBtn, stopBtn,buttonPerceptiva,buttonQuantitativa;
     private ImageButton botaoVoltar;
     private static final int RECORDER_SAMPLERATE = 8000;
     private static final int RECORDER_CHANNELS = AudioFormat.CHANNEL_IN_MONO;
@@ -51,6 +52,9 @@ public class GravacaowavActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gravacaowav);
+
+        OUTPUT_FILE =  Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "voice8K16bitmono.wav";//"/sdcard/voice8K16bitmonoteste.wav";
+
 
 
         botaoVoltar = findViewById(R.id.imagemBotaoVoltarId);
@@ -70,36 +74,43 @@ public class GravacaowavActivity extends AppCompatActivity {
         final Usuario usuario = (Usuario) getIntent().getSerializableExtra("Editing");
 
 
-        enableButtons(false);
 
 
         startBtn = findViewById(R.id.buttonGravar);
-        startBtn.setOnClickListener(new View.OnClickListener() {
+        PushDownAnim.setPushDownAnimTo(startBtn)
+        .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startRecording();
-                Toast.makeText(GravacaowavActivity.this, "gravando", Toast.LENGTH_SHORT).show();
+                Toast.makeText(GravacaowavActivity.this, "Gravando...", Toast.LENGTH_SHORT).show();
 
             }
         });
-        finishBtn = (Button) findViewById(R.id.buttonPararGravacao);
-        finishBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stopRecording();
-                File raw = new File("OUTPUT_FILE2");
-                File  wav= new File("OUTPUT_FILE");
+        pararGravacaoBtn = findViewById(R.id.buttonFinalizarGravacao);
+        PushDownAnim.setPushDownAnimTo(pararGravacaoBtn)
+        .setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Toast.makeText(GravacaowavActivity.this, "Gravação finalizada.", Toast.LENGTH_SHORT).show();
+               stopRecording();
 
-                try {
-                    rawToWave(raw , wav);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+
+               File raw = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/voice8K16bitmono.pcm");
+              File  wav = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/voice8K16bitmono.wav");
+
+
+               try {
+                   rawToWave(raw , wav);
+               } catch (IOException e) {
+                   e.printStackTrace();
+               }
+            raw.delete();
+           }
+       });
 
         playBtn = (Button) findViewById(R.id.buttonPlay);
-        playBtn.setOnClickListener(new View.OnClickListener() {
+        PushDownAnim.setPushDownAnimTo(playBtn)
+        .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 playRecording();
@@ -107,7 +118,8 @@ public class GravacaowavActivity extends AppCompatActivity {
         });
 
         stopBtn = (Button) findViewById(R.id.buttonStop);
-        stopBtn.setOnClickListener(new View.OnClickListener() {
+        PushDownAnim.setPushDownAnimTo(stopBtn)
+        .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 stopPlayback();
@@ -131,15 +143,11 @@ public class GravacaowavActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 upload();
-                }
+                Intent intent2 = new Intent(GravacaowavActivity.this,ResultadoActivity.class);
+                startActivity(intent2);
+
+            }
         });
-//        OUTPUT_FILE = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + UUID.randomUUID().toString() + "_rec.3gp";
-    OUTPUT_FILE =  Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "gravacao"  + "voice8K16bitmono.wav";
-    OUTPUT_FILE2 =  Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "gravacao"  + "voice8K16bitmono.raw";
-
-
-
-
     }
 
 
@@ -148,14 +156,7 @@ public class GravacaowavActivity extends AppCompatActivity {
     int BytesPerElement = 2; // 2 bytes in 16bit format
 
 
-    private void enableButton(int id, boolean isEnable) {
-        findViewById(id).setEnabled(isEnable);
-    }
 
-    private void enableButtons(boolean isRecording) {
-        enableButton(R.id.buttonGravar, !isRecording);
-        enableButton(R.id.buttonPararGravacao, isRecording);
-    }
 
     private void startRecording() {
 
@@ -190,7 +191,7 @@ public class GravacaowavActivity extends AppCompatActivity {
     private void writeAudioDataToFile() {
         // Write the output audio in byte
 
-        String filePath = "/sdcard/voice8K16bitmono.pcm";
+        String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/voice8K16bitmono.pcm";
         short sData[] = new short[BufferElements2Rec];
 
 
@@ -271,17 +272,10 @@ public class GravacaowavActivity extends AppCompatActivity {
             writeShort(output, (short) 16); // bits per sample
             writeString(output, "data"); // subchunk 2 id
             writeInt(output, rawData.length); // subchunk 2 size
-            // Audio data (conversion big endian -> little endian)
-            // short[] shorts = new short[rawData.length / 2];
-            // ByteBuffer.wrap(rawData).order(ByteOrder.LITTLE_ENDIAN).asShortBuffer().get(shorts);
-            // ByteBuffer bytes = ByteBuffer.allocate(shorts.length * 2);
-            //for (short s : shorts) {
-            //  bytes.putShort(s);
-            //     }
             writeInt(output, rawData.length); // subchunk 2 size
             output.write(rawData);
 
-            //   output.write(bytes.array());
+
         } finally {
             if (output != null) {
                 output.close();
@@ -317,7 +311,7 @@ public class GravacaowavActivity extends AppCompatActivity {
         }
 
         mediaPlayer.start();
-        Toast.makeText(GravacaowavActivity.this, OUTPUT_FILE, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(GravacaowavActivity.this, OUTPUT_FILE, Toast.LENGTH_SHORT).show();
 
     }
     private void stopPlayback() {
@@ -348,7 +342,7 @@ public class GravacaowavActivity extends AppCompatActivity {
                 String data = OUTPUT_FILE;
 
                 FileInputStream in = new FileInputStream(new File(data));
-                boolean result = con.storeFile("audiorecorder.3gp", in);
+                boolean result = con.storeFile("voice8K16bitmono.wav", in);
                 in.close();
                 if (result) Log.v("upload result", "succeeded");
                 con.logout();
@@ -360,6 +354,7 @@ public class GravacaowavActivity extends AppCompatActivity {
         {
             e.printStackTrace();
         }
+
 
     }
 

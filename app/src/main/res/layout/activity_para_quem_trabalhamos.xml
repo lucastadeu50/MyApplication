@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/pading_textos"
-                android:text="Trabalhamos para médicos fonoaudiologos ou especialistas na área d fonoaudiologia que tem como finalidade o tratamento da voz humana."
+                android:text="Trabalhamos para médicos fonoaudiologos ou especialistas na área de fonoaudiologia que tem como finalidade o tratamento da voz humana."
                 android:textColor="@color/cor_textos"
                 android:textSize="@dimen/tamanho_corpo_textos"
                 tools:layout_editor_absoluteX="163dp"

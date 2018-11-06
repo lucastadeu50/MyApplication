@@ -20,7 +20,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="8dp" />
 
     <Button
         android:id="@+id/buttonPlay"
@@ -35,7 +36,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPararGravaçao" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonFinalizarGravacao" />
 
     <Button
         android:id="@+id/buttonAnalisePerceptiva"
@@ -68,7 +69,7 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonAnalisePerceptiva" />
 
     <Button
-        android:id="@+id/buttonPararGravacao"
+        android:id="@+id/buttonFinalizarGravacao"
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_marginTop="16dp"
@@ -132,7 +133,7 @@
         android:id="@+id/imageView14"
         android:layout_width="70dp"
         android:layout_height="55dp"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonPararGravacao"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonFinalizarGravacao"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/botaopause" />
 

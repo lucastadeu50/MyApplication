@@ -1,11 +1,13 @@
 package com.example.dimasjose.myapplication.control;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,14 +36,28 @@ public class MainActivity extends AppCompatActivity {
     private TextView botaoContato;
     private TextView botaoServico;
 
-    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Sair")
+                .setMessage("Voce tem certeza?")
+                .setPositiveButton("sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Intent intent = new Intent(Intent.ACTION_MAIN);
+                        intent.addCategory(Intent.CATEGORY_HOME);
+                        startActivity(intent);
+                    }
+                }).setNegativeButton("não", null).show();
+    }
+
+ /*   @Override
     public void onBackPressed() {
         super.onBackPressed();
         Intent i=new Intent(this,MainActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         finish();
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(this, "Permissão Garantida", Toast.LENGTH_LONG).show();
+                   // Toast.makeText(this, "Permissão Garantida", Toast.LENGTH_LONG).show();
                     // permission was granted, yay! Do the
                     // contacts-related task you need to do.
                 } else {
