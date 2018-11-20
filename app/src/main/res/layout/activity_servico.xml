@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10sp"
-                android:text="Os serviços que realizamos são na area de fonoaudiologia para tratamentos da voz humana."
+                android:text="@string/texto_servicoact"
                 android:textColor="@color/cor_textos"
                 android:textSize="18sp"
                 tools:layout_editor_absoluteX="163dp"

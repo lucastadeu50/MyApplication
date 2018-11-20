@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:text="Texto "
+                android:text="@string/texto_sobreaplicativoact"
                 android:textSize="@dimen/tamanho_corpo_textos"
                 tools:layout_editor_absoluteX="144dp"
                 tools:layout_editor_absoluteY="188dp" />

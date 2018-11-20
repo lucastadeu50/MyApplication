@@ -28,4 +28,13 @@
         <item name="android:textColor">@color/my_spinner_text_color</item>
     </style>
 
+    <style name="ColoredButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textColor">@color/btn_text_color</item>
+    </style>
+
+    <style name="AccentButton" parent="ThemeOverlay.AppCompat.Dark">
+        <!-- customize colorButtonNormal for the disable color -->
+        <!-- customize colorAccent for the enabled color -->
+    </style>
+
 </resources>

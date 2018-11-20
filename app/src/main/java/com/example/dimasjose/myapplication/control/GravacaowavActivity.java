@@ -46,8 +46,6 @@ public class GravacaowavActivity extends AppCompatActivity {
     private boolean isRecording = false;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -333,7 +331,7 @@ public class GravacaowavActivity extends AppCompatActivity {
         try
         {
             con = new FTPClient();
-            con.connect("acoustic.ddns.net",2121);
+            con.connect("192.168.1.11",21);
 
             if (con.login("acoustic", "acoustic2018"))
             {

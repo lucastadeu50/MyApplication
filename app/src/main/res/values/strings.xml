@@ -20,5 +20,9 @@
         <item>Masculino</item>
     </string-array>
     <string name="texto_servico">servico</string>
-
+    <string name="texto_paraquemtrabalhamosact">Trabalhamos para médicos fonoaudiologos ou especialistas na
+        área de fonoaudiologia que tem como finalidade o tratamento da voz humana.</string>
+    <string name="texto_servicoact">Os serviços que realizamos são na area de fonoaudiologia para tratamentos da voz humana.</string>
+    <string name="texto_sobreaplicativoact"></string>
+    <string name="texto_contatoact"></string>
 </resources>

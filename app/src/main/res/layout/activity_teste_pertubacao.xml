@@ -31,6 +31,8 @@
         android:background="@drawable/mybutton"
         android:drawableTint="#6666cc"
         android:text="Ancora"
+        android:textOff="Ancora"
+        android:textOn="Stop"
         android:textColor="@color/cor_titulo_caixa_texto"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -46,6 +48,8 @@
         android:background="@drawable/mybutton"
         android:drawableTint="#6666cc"
         android:text="Gravação"
+        android:textOff="Gravação"
+        android:textOn="Stop"
         android:textColor="@color/cor_titulo_caixa_texto"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -54,12 +58,12 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonPlayAncora" />
 
     <Button
-        android:id="@+id/buttonMenor"
+        android:id="@+id/buttonMaior"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/botao_direito_arredondado"
-        android:text="Menor"
+        android:text="Maior"
         android:textColor="@color/cor_titulo_caixa_texto"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -79,18 +83,18 @@
         android:textColor="@color/cor_titulo_caixa_texto"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonMaior"
-        app:layout_constraintEnd_toStartOf="@+id/buttonMenor"
-        app:layout_constraintStart_toEndOf="@+id/buttonMaior"
-        app:layout_constraintTop_toTopOf="@+id/buttonMenor" />
+        app:layout_constraintBottom_toBottomOf="@+id/buttonMenor"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMaior"
+        app:layout_constraintStart_toEndOf="@+id/buttonMenor"
+        app:layout_constraintTop_toTopOf="@+id/buttonMaior" />
 
     <Button
-        android:id="@+id/buttonMaior"
+        android:id="@+id/buttonMenor"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/botao_esquerdo"
-        android:text="Maior"
+        android:text="Menor"
         android:textColor="@color/cor_titulo_caixa_texto"
         android:textSize="20dp"
         android:textStyle="bold"

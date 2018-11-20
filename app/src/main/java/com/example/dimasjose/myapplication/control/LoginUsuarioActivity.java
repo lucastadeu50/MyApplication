@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dimasjose.myapplication.R;
@@ -30,6 +31,7 @@ public class LoginUsuarioActivity extends AppCompatActivity {
     private EditText email;
     private EditText senha;
     private Button botaoLogar;
+    private TextView cadastrar;
     private UsuarioLogin usuario;
     private FirebaseAuth autenticacao;
     private DatabaseReference referenciaFirebase;
@@ -42,11 +44,20 @@ public class LoginUsuarioActivity extends AppCompatActivity {
 
 
         permissoes();
+
         verificarUsuarioLogado();
 
         email = findViewById(R.id.edit_login_email_id);
         senha = findViewById(R.id.edit_senha_id);
         botaoLogar = findViewById(R.id.botao_logar_id);
+
+        cadastrar = findViewById(R.id.textView_cadastre_id);
+        cadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                abrirCadastroUsuario();
+            }
+        });
 
         botaoLogar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +112,7 @@ public class LoginUsuarioActivity extends AppCompatActivity {
 
 }
 
-    public void abrirCadastroUsuario (View view){
+    public void abrirCadastroUsuario (){
 
         Intent intent = new Intent(LoginUsuarioActivity.this, CadastroUsuarioActivity.class);
         startActivity( intent );
