@@ -141,7 +141,7 @@ public class GravacaowavActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 upload();
-                Intent intent2 = new Intent(GravacaowavActivity.this,ResultadoActivity.class);
+                Intent intent2 = new Intent(GravacaowavActivity.this,AnaliseQuantitativaActivity.class);
                 startActivity(intent2);
 
             }
@@ -331,9 +331,10 @@ public class GravacaowavActivity extends AppCompatActivity {
         try
         {
             con = new FTPClient();
-            con.connect("192.168.1.11",21);
+            con.connect("192.168.2.15",21);
 
-            if (con.login("acoustic", "acoustic2018"))
+
+            if (con.login("Lucas", "lucas"))
             {
                 con.enterLocalPassiveMode(); // important!
                 con.setFileType(FTP.BINARY_FILE_TYPE);
@@ -341,6 +342,7 @@ public class GravacaowavActivity extends AppCompatActivity {
 
                 FileInputStream in = new FileInputStream(new File(data));
                 boolean result = con.storeFile("voice8K16bitmono.wav", in);
+           //     con.doCommand("chmod 777 voice8K16bitmono.wav", null );
                 in.close();
                 if (result) Log.v("upload result", "succeeded");
                 con.logout();
@@ -351,8 +353,8 @@ public class GravacaowavActivity extends AppCompatActivity {
         catch (Exception e)
         {
             e.printStackTrace();
+            Toast.makeText(this, "Falha ao carregar", Toast.LENGTH_SHORT).show();
         }
-
 
     }
 

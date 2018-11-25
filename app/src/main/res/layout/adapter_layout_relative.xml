@@ -16,10 +16,10 @@
         android:text=""
         android:textColor="@color/cor_textos"
         android:textSize="@dimen/tamanho_corpo_textos"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewUnvoicedResultadoMedia"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintStart_toEndOf="@+id/textViewUnvoicedResultadoMedia"
+        app:layout_constraintTop_toTopOf="@+id/textViewUnvoicedResultadoMedia" />
 
     <TextView
         android:id="@+id/textViewData"
@@ -49,7 +49,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView3" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewUnvoicedResultadoMedia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -70,8 +70,8 @@
         android:text="Nascimento:"
         android:textColor="@color/cor_principal"
         android:textSize="@dimen/tamanho_corpo_textos"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/textViewUnvoicedResultadoMedia"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUnvoicedResultadoMedia" />
 
     <TextView
         android:id="@+id/textView3"

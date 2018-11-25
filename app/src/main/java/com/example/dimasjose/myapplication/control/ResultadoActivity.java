@@ -22,6 +22,8 @@ public class ResultadoActivity extends AppCompatActivity {
 
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        mWebView.loadUrl("http://acoustic.ddns.net:8080/run_acoustic.php?file=voice8K16bitmonoteste.wav");
+       // mWebView.loadUrl("http://192.168.0.176/test.php?file=voice8K16bitmono.wav");
+        mWebView.loadUrl("http://192.168.2.15/saida.php");
+
     }
 }
