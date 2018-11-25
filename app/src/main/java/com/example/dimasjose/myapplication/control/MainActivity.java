@@ -10,6 +10,9 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -58,6 +61,32 @@ public class MainActivity extends AppCompatActivity {
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         finish();
     }*/
+ @Override
+ public boolean onCreateOptionsMenu(Menu menu) {
+     MenuInflater inflater = getMenuInflater();
+     inflater.inflate(R.menu.menu_mainactivity, menu); // INFLA O MENU DE CADASTRO
+     return super.onCreateOptionsMenu(menu);
+ }
+
+    @Override
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+
+            case R.id.itemLogOut:
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(MainActivity.this, LoginUsuarioActivity.class);
+                startActivity(intent);
+
+
+                break;
+
+
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +112,12 @@ public class MainActivity extends AppCompatActivity {
                              Manifest.permission.WRITE_EXTERNAL_STORAGE,
                              Manifest.permission.RECORD_AUDIO},
                 1);
+
+
+
+
+
+
 
 
         //        buttonIncluir.setOnClickListener(new View.OnClickListener() {

@@ -29,6 +29,10 @@ public class AnaliseQuantitativaActivity extends AppCompatActivity {
     TextView textViewjitter_NMedia, textViewjitterN_Media, textViewjitter_PMedia;
     TextView textViewJITTERMedia, textViewratioMedia, textViewshimmerRMSMedia ,textViewshimmerPeakMedia, textViewSNRMedia;
 
+    TextView textViewDurStd, textViewUnvoicedStd, textViewPitchBreaksStd, textViewF0Std,textViewSmoothF0Std, textViewjitterP_Std;
+    TextView textViewjitter_NStd, textViewjitterN_Std, textViewjitter_PStd;
+    TextView textViewJITTERStd, textViewratioStd, textViewshimmerRMSStd ,textViewshimmerPeakStd, textViewSNRStd;
+
 
 
     @Override
@@ -36,7 +40,7 @@ public class AnaliseQuantitativaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analise_quantitativa);
 
-        buttonOK.findViewById(R.id.buttonOk);
+        buttonOK = findViewById(R.id.buttonOk);
 
         textViewDurMedia = findViewById(R.id.textViewDurResultadoMedia);
         textViewUnvoicedMedia = findViewById(R.id.textViewUnvoicedResultadoMedia);
@@ -54,6 +58,17 @@ public class AnaliseQuantitativaActivity extends AppCompatActivity {
         textViewSNRMedia = findViewById(R.id.textViewSnrResultadoMedia);
 
 
+        textViewF0Std = findViewById(R.id.textViewF0DesvioPadrao);
+        textViewSmoothF0Std = findViewById(R.id.textViewSmoothF0DesvioPadrao);
+        textViewjitterP_Std = findViewById(R.id.textViewjitterP_DesvioPadrao);
+        textViewjitter_NStd = findViewById(R.id.textViewjitter_NDesvioPadrao);
+        textViewjitterN_Std = findViewById(R.id.textViewjitterN_DesvioPadrao);
+        textViewjitter_PStd = findViewById(R.id.textViewjitter_PDesvioPadrao);
+        textViewJITTERStd = findViewById(R.id.textViewJITTERDesvioPadrao);
+        textViewratioStd = findViewById(R.id.textViewratioDesvioPadrao);
+        textViewshimmerRMSStd = findViewById(R.id.textViewShimmerRMSDesvioPadrao);
+        textViewshimmerPeakStd = findViewById(R.id.textViewshimmerPeakDesvioPadrao);
+        textViewSNRStd = findViewById(R.id.textViewSnrDesvioPadrao);
 
 
 
@@ -94,9 +109,21 @@ public class AnaliseQuantitativaActivity extends AppCompatActivity {
                     textViewjitterP_Media.setText(resultadoJson.jitterP_mean);
                     textViewshimmerPeakMedia.setText(resultadoJson.shimmerPeakmean);
                     textViewshimmerRMSMedia.setText(resultadoJson.shimmerRMSmean);
-                    textViewSmoothF0Media.setText(resultadoJson.f0mean);
+                    textViewSmoothF0Media.setText(resultadoJson.smoothF0mean);
                     textViewSNRMedia.setText(resultadoJson.snrmean);
 
+
+                    textViewF0Std.setText(resultadoJson.f0StdDvev);
+                    textViewjitter_NStd.setText(resultadoJson.jitter_NStdDev);
+                    textViewjitter_PStd.setText(resultadoJson.jitter_PStdDev);
+                    textViewJITTERStd.setText(resultadoJson.jitterStdDev);
+                    textViewratioStd.setText(resultadoJson.ratiostr);
+                    textViewjitterN_Std.setText(resultadoJson.jitterN_StdDev);
+                    textViewjitterP_Std.setText(resultadoJson.jitterP_StdDev);
+                    textViewshimmerPeakStd.setText(resultadoJson.shimmerPeakStdDev);
+                    textViewshimmerRMSStd.setText(resultadoJson.shimmerRMSStdDev);
+                    textViewSmoothF0Std.setText(resultadoJson.smoothF0StdDev);
+                    textViewSNRStd.setText(resultadoJson.snrStdDev);
 
 
                 } else {

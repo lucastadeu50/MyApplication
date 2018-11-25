@@ -25,7 +25,7 @@ public class ResultadoJson implements Serializable {
     public String shimmerRMSmean;
     public String shimmerRMSStdDev;
     public String shimmerPeakmean;
-    public String shimmerPeaStdDev;
+    public String shimmerPeakStdDev;
     public String snrmean;
     public String snrStdDev;
 

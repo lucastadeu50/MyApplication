@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.thekhaeng.pushdownanim.PushDownAnim;
 
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
@@ -59,7 +60,9 @@ public class LoginUsuarioActivity extends AppCompatActivity {
             }
         });
 
-        botaoLogar.setOnClickListener(new View.OnClickListener() {
+
+        PushDownAnim.setPushDownAnimTo(botaoLogar)
+        .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!email.getText().toString().equals("") && !email.getText().toString().equals("")){

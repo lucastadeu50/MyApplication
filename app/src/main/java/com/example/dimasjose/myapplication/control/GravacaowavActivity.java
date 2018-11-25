@@ -125,7 +125,8 @@ public class GravacaowavActivity extends AppCompatActivity {
         });
 
         buttonPerceptiva = findViewById(R.id.buttonAnalisePerceptiva);
-        buttonPerceptiva.setOnClickListener(new View.OnClickListener() {
+        PushDownAnim.setPushDownAnimTo(buttonPerceptiva)
+                .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GravacaowavActivity.this,TestePertubacaoActivity.class);
@@ -136,8 +137,8 @@ public class GravacaowavActivity extends AppCompatActivity {
         });
 
         buttonQuantitativa=findViewById(R.id.buttonAnaliseQuantitativa);
-        buttonQuantitativa.setEnabled(true);
-        buttonQuantitativa.setOnClickListener(new View.OnClickListener() {
+        PushDownAnim.setPushDownAnimTo(buttonQuantitativa)
+                .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 upload();
