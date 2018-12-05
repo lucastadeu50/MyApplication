@@ -29,6 +29,12 @@ public class UsuarioBD extends SQLiteOpenHelper{
     public static final String COL5 = "OCUPACAO";
     public static final String COL6 = "OBSERVACAO";
     public static final String COL7 =  "RESULTADO";
+    public static final String COL8 =  "PITCHBREAKS";
+    public static final String COL9 =  "F0";
+    public static final String COL10 =  "JITTER";
+    public static final String COL11 =  "SNR";
+    public static final String COL12 =  "SHIMMERRMS";
+
 
 
 
@@ -39,7 +45,7 @@ public class UsuarioBD extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE " + TABLE_NAME + " (_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                " NOME, " + " DATADENASCIMENTO, " + " SEXO, " + " OCUPACAO, " + " OBSERVACAO, " + " RESULTADO)";
+                " NOME, " + " DATADENASCIMENTO, " + " SEXO, " + " OCUPACAO, " + " OBSERVACAO, " + " RESULTADO, " + "PITCHBREAKS, " + "F0, " + "JITTER, " + "SNR, " + "SHIMMERRMS )";
         db.execSQL(createTable);
     }
 
@@ -109,7 +115,7 @@ public class UsuarioBD extends SQLiteOpenHelper{
     }
 
     // EDITA UM USUARIO QUE JA ESTA SALVO, FUNCIONA IGUAL A FUNÇÃO DE SALVAR
-    public boolean update(Long id, String nome,String datadenascimento, String sexo,String ocupacao, String obsservacao, String resultado){
+    public boolean update(Long id, String nome,String datadenascimento, String sexo,String ocupacao, String obsservacao, String resultado, String pitchbreaks, String f0, String jitter, String snr, String shimmerRMS){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL1, id);
@@ -119,6 +125,12 @@ public class UsuarioBD extends SQLiteOpenHelper{
         contentValues.put(COL5, ocupacao);
         contentValues.put(COL6, obsservacao);
         contentValues.put(COL7, resultado);
+        contentValues.put(COL8, pitchbreaks);
+        contentValues.put(COL9, f0);
+        contentValues.put(COL10, jitter);
+        contentValues.put(COL11, snr);
+        contentValues.put(COL12, shimmerRMS);
+
         try {
               sqLiteDatabase.update(TABLE_NAME, contentValues, "_ID=?", new String[]{String.valueOf(id)});
         }finally {
@@ -131,20 +143,28 @@ public class UsuarioBD extends SQLiteOpenHelper{
     public  List<Usuario> toList(Cursor cursor){
 
         List<Usuario> usuarios = new ArrayList<>();
-        if(cursor.moveToFirst()){
-            do{
-                Usuario usuario = new Usuario();
-                usuario.id = cursor.getLong(cursor.getColumnIndex("_ID"));
-                usuario.nome = cursor.getString(cursor.getColumnIndex("NOME"));
-                usuario.datadenascimento = cursor.getString(cursor.getColumnIndex("DATADENASCIMENTO"));
-                usuario.sexo = cursor.getString(cursor.getColumnIndex("SEXO"));
-                usuario.ocupacao = cursor.getString(cursor.getColumnIndex("OCUPACAO"));
-                usuario.observacao = cursor.getString(cursor.getColumnIndex("OBSERVACAO"));
-                usuario.resultado = cursor.getString(cursor.getColumnIndex("RESULTADO"));
+        if(cursor!=null && cursor.getCount() > 0) {
+
+            if (cursor.moveToFirst()) {
+                do {
+                    Usuario usuario = new Usuario();
+                    usuario.id = cursor.getLong(cursor.getColumnIndex("_ID"));
+                    usuario.nome = cursor.getString(cursor.getColumnIndex("NOME"));
+                    usuario.datadenascimento = cursor.getString(cursor.getColumnIndex("DATADENASCIMENTO"));
+                    usuario.sexo = cursor.getString(cursor.getColumnIndex("SEXO"));
+                    usuario.ocupacao = cursor.getString(cursor.getColumnIndex("OCUPACAO"));
+                    usuario.observacao = cursor.getString(cursor.getColumnIndex("OBSERVACAO"));
+                    usuario.resultado = cursor.getString(cursor.getColumnIndex("RESULTADO"));
+                    usuario.pitchbreaks = cursor.getString(cursor.getColumnIndex("PITCHBREAKS"));
+                    usuario.f0 = cursor.getString(cursor.getColumnIndex("F0"));
+                    usuario.jitter = cursor.getString(cursor.getColumnIndex("JITTER"));
+                    usuario.snr = cursor.getString(cursor.getColumnIndex("SNR"));
+                    usuario.shimmerRMS = cursor.getString(cursor.getColumnIndex("SHIMMERRMS"));
 
 
-                usuarios.add(usuario);
-            }while (cursor.moveToNext());
+                    usuarios.add(usuario);
+                } while (cursor.moveToNext());
+            }
         }
         return usuarios;
     }

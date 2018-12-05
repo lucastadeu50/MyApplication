@@ -38,8 +38,15 @@ private ArrayList<Usuario> usuarios;
         TextView tvDatadenascimento = (TextView) convertView.findViewById(R.id.textViewData);
         TextView tvSexo = (TextView) convertView.findViewById(R.id.textViewSexo);
         TextView tvOcupacao = convertView.findViewById(R.id.textViewOcupacao);
-        TextView tvObservacao = convertView.findViewById(R.id.textViewObservacao);
+        TextView tvObservacao = convertView.findViewById(R.id.textViewObservacao2);
         TextView tvResultado = convertView.findViewById(R.id.textViewResultado);
+        TextView tvPichtBreaks = convertView.findViewById(R.id.textViewPitchBreaks);
+        TextView tvF0 = convertView.findViewById(R.id.textViewF0);
+        TextView tvShimmerRMS = convertView.findViewById(R.id.textViewShimmerRms);
+        TextView tvJitter = convertView.findViewById(R.id.textViewJitter);
+        TextView tvSnr = convertView.findViewById(R.id.textViewSnr);
+
+
 
         tvNome.setText(usuario.nome);
         tvDatadenascimento.setText(usuario.datadenascimento);
@@ -47,6 +54,11 @@ private ArrayList<Usuario> usuarios;
         tvOcupacao.setText(usuario.ocupacao);
         tvObservacao.setText(usuario.observacao);
         tvResultado.setText(usuario.resultado);
+        tvPichtBreaks.setText(usuario.pitchbreaks);
+        tvF0.setText(usuario.f0);
+        tvShimmerRMS.setText(usuario.shimmerRMS);
+        tvJitter.setText(usuario.jitter);
+        tvSnr.setText(usuario.snr);
         return convertView;
     }
 }

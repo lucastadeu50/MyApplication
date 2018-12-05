@@ -11,6 +11,8 @@ import android.widget.Toast;
 import com.example.dimasjose.myapplication.R;
 import com.example.dimasjose.myapplication.config.iResultadojson;
 import com.example.dimasjose.myapplication.model.ResultadoJson;
+import com.example.dimasjose.myapplication.model.Usuario;
+import com.example.dimasjose.myapplication.model.UsuarioBD;
 
 import org.apache.commons.net.ftp.FTPClient;
 
@@ -25,6 +27,11 @@ import retrofit2.Response;
 
 public class AnaliseQuantitativaActivity extends AppCompatActivity {
     Button buttonOK;
+
+    private Usuario usuario;
+    private UsuarioBD usuarioBD;
+
+    ResultadoJson resultadoJson;
     TextView textViewDurMedia, textViewUnvoicedMedia, textViewPitchBreaksMedia, textViewF0Media,textViewSmoothF0Media, textViewjitterP_Media;
     TextView textViewjitter_NMedia, textViewjitterN_Media, textViewjitter_PMedia;
     TextView textViewJITTERMedia, textViewratioMedia, textViewshimmerRMSMedia ,textViewshimmerPeakMedia, textViewSNRMedia;
@@ -71,6 +78,10 @@ public class AnaliseQuantitativaActivity extends AppCompatActivity {
         textViewSNRStd = findViewById(R.id.textViewSnrDesvioPadrao);
 
 
+        usuarioBD = new UsuarioBD(this);
+        Intent intent = getIntent();
+        usuario = new Usuario();
+        final Usuario usuario = (Usuario) getIntent().getSerializableExtra("Editing");
 
         URL url= null;
         try {
@@ -126,6 +137,16 @@ public class AnaliseQuantitativaActivity extends AppCompatActivity {
                     textViewSNRStd.setText(resultadoJson.snrStdDev);
 
 
+                    usuario.pitchbreaks = resultadoJson.pitchBreaks;
+                    usuario.shimmerRMS = resultadoJson.shimmerRMSmean;
+                    usuario.f0 = resultadoJson.f0mean;
+                    usuario.snr = resultadoJson.snrmean;
+                    usuario.jitter = resultadoJson.jittermean;
+
+
+
+
+
                 } else {
                     Toast.makeText(getBaseContext(), "Falha ao acessar Web Service, anote o codigo: " + String.valueOf(code),
                             Toast.LENGTH_LONG).show();
@@ -152,10 +173,24 @@ public class AnaliseQuantitativaActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
+
+                update(usuario.id, usuario.nome, usuario.datadenascimento, usuario.sexo, usuario.ocupacao, usuario.observacao, usuario.resultado, usuario.pitchbreaks, usuario.f0, usuario.jitter, usuario.snr, usuario.shimmerRMS );
+
                 Intent intent = new Intent(AnaliseQuantitativaActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
 
+    }
+    public void update(Long id, String newEntry, String newEntry2, String newEntry3, String newEntry4, String newEntry5, String newEntry6, String newEntry7, String newEntry8, String newEntry9, String newEntry10, String newEntry11) {
+
+        boolean insertData = usuarioBD.update(id, newEntry, newEntry2, newEntry3, newEntry4, newEntry5, newEntry6, newEntry7, newEntry8, newEntry9, newEntry10, newEntry11);
+
+        if (insertData == true) {
+            //  Toast.makeText(this, "Dado adicionado ao banco com sucesso.", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "ERRO dado nao adicionado ao banco.", Toast.LENGTH_LONG).show();
+        }
     }
 }

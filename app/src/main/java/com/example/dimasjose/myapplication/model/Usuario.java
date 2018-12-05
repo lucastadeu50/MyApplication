@@ -22,6 +22,11 @@ public class Usuario implements Serializable {
                 ", observacao='" + observacao + '\'' +
                 ", sexo='" + sexo + '\'' +
                 ", resultado='" + resultado + '\'' +
+                ", pitchbreaks='" + pitchbreaks + '\'' +
+                ", f0='" + f0 + '\'' +
+                ", sexo='" + jitter + '\'' +
+                ", snr='" + snr + '\'' +
+                ", shimmerRMS='" + shimmerRMS + '\'' +
                 '}';
     }
 
@@ -31,5 +36,10 @@ public class Usuario implements Serializable {
     public String observacao;
     public String sexo;
     public String resultado;
+    public String pitchbreaks;
+    public String f0;
+    public String jitter;
+    public String snr;
+    public String shimmerRMS;
 
 }

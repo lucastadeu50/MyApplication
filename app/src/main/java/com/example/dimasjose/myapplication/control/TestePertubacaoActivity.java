@@ -178,9 +178,9 @@ public class TestePertubacaoActivity extends AppCompatActivity {
         });
 
     }
-    public void update(Long id, String newEntry, String newEntry2, String newEntry3, String newEntry4, String newEntry5, String newEntry6) {
+    public void update(Long id, String newEntry, String newEntry2, String newEntry3, String newEntry4, String newEntry5, String newEntry6, String newEntry7, String newEntry8, String newEntry9, String newEntry10, String newEntry11) {
 
-        boolean insertData = usuarioBD.update(id, newEntry, newEntry2, newEntry3, newEntry4, newEntry5, newEntry6);
+        boolean insertData = usuarioBD.update(id, newEntry, newEntry2, newEntry3, newEntry4, newEntry5, newEntry6, newEntry7, newEntry8, newEntry9, newEntry10, newEntry11);
 
         if (insertData == true) {
             //  Toast.makeText(this, "Dado adicionado ao banco com sucesso.", Toast.LENGTH_LONG).show();
@@ -258,7 +258,7 @@ public class TestePertubacaoActivity extends AppCompatActivity {
                   outFile.delete();
               usuario.resultado = String.valueOf(resultado);
               usuario.observacao = input.getText().toString();
-              update(usuario.id, usuario.nome, usuario.datadenascimento, usuario.sexo, usuario.ocupacao, usuario.observacao,usuario.resultado);
+              update(usuario.id, usuario.nome, usuario.datadenascimento, usuario.sexo, usuario.ocupacao, usuario.observacao, usuario.resultado, usuario.pitchbreaks, usuario.f0, usuario.jitter, usuario.snr, usuario.shimmerRMS );
               Intent inte = new Intent(TestePertubacaoActivity.this, MainActivity.class);
               startActivity(inte);
 

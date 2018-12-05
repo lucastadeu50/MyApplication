@@ -74,6 +74,7 @@ public class GravacaowavActivity extends AppCompatActivity {
 
 
 
+
         startBtn = findViewById(R.id.buttonGravar);
         PushDownAnim.setPushDownAnimTo(startBtn)
         .setOnClickListener(new View.OnClickListener() {
@@ -143,6 +144,8 @@ public class GravacaowavActivity extends AppCompatActivity {
             public void onClick(View v) {
                 upload();
                 Intent intent2 = new Intent(GravacaowavActivity.this,AnaliseQuantitativaActivity.class);
+                intent2.putExtra("Editing", usuario);
+
                 startActivity(intent2);
 
             }
